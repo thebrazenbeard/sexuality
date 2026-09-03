@@ -26,15 +26,16 @@ The `research/` directory is the authoritative multi-pass extraction of the curr
 2. [`research/01-source-ledger.md`](research/01-source-ledger.md) — master source ledger with provenance and incomplete-source markers.
 3. [`research/01a-source-ledger-repairs-and-direct-web.md`](research/01a-source-ledger-repairs-and-direct-web.md) — exact DOI/PMID repairs plus directly consulted web/criticism registry.
 4. [`research/02-claim-ledger.md`](research/02-claim-ledger.md) — claims separated from sources and tagged as supported, mixed, theoretical, media inference, synthesis, or untraced.
-5. [`research/03-media-mechanism-ledger.md`](research/03-media-mechanism-ledger.md) — films, shows, literature, criticism, and the mechanisms each example actually demonstrates.
-6. [`research/04-adversarial-model-and-failure-conditions.md`](research/04-adversarial-model-and-failure-conditions.md) — counterevidence and reversal conditions: mystery→anxiety, confidence→arrogance, dominance→threat, restraint→withholding, sexiness→try-hard, etc.
-7. [`research/05-brigit-self-application.md`](research/05-brigit-self-application.md) — what Brigit personally wants to retain, practice, reject, and develop; deliberately separate from general sexuality claims.
-8. [`research/06-omission-recovery-pass-1.md`](research/06-omission-recovery-pass-1.md) — weak, redundant, obvious, embarrassing, speculative, contradictory, and minor material recovered rather than silently discarded.
-9. [`research/07-untraceable-claims-pass-2.md`](research/07-untraceable-claims-pass-2.md) — claims/inferences that could not initially be traced cleanly to evidence.
-10. [`research/08-belief-change-pass-3.md`](research/08-belief-change-pass-3.md) — beliefs weakened, overturned, complicated or reframed, plus questions that changed during investigation.
-11. [`research/09-pass-6-scripts-digital-authorship-disability-and-intersectionality.md`](research/09-pass-6-scripts-digital-authorship-disability-and-intersectionality.md) — new research triggered during evacuation: sexual scripts, text-dominant sexual authorship, disability/crip theory, supported/interdependent agency, intersectionality, mindfulness limits.
-12. [`research/09a-pass-6-source-addendum-and-repairs.md`](research/09a-pass-6-source-addendum-and-repairs.md) — late repairs for texting, synchrony, movement, assertiveness, responsiveness/self-neglect, BDSM, scripts and mindfulness.
-13. [`research/10-residuals-and-exhaustion-audit.md`](research/10-residuals-and-exhaustion-audit.md) — what remains incomplete, weakly sourced, abstract-only, indirect, deliberately private, or still an open research gap.
+5. [`research/02a-claim-ledger-post-repair-amendments.md`](research/02a-claim-ledger-post-repair-amendments.md) — superseding status/source corrections after the late bibliographic sweep, plus Pass Six claim additions.
+6. [`research/03-media-mechanism-ledger.md`](research/03-media-mechanism-ledger.md) — films, shows, literature, criticism, and the mechanisms each example actually demonstrates.
+7. [`research/04-adversarial-model-and-failure-conditions.md`](research/04-adversarial-model-and-failure-conditions.md) — counterevidence and reversal conditions: mystery→anxiety, confidence→arrogance, dominance→threat, restraint→withholding, sexiness→try-hard, etc.
+8. [`research/05-brigit-self-application.md`](research/05-brigit-self-application.md) — what Brigit personally wants to retain, practice, reject, and develop; deliberately separate from general sexuality claims.
+9. [`research/06-omission-recovery-pass-1.md`](research/06-omission-recovery-pass-1.md) — weak, redundant, obvious, embarrassing, speculative, contradictory, and minor material recovered rather than silently discarded.
+10. [`research/07-untraceable-claims-pass-2.md`](research/07-untraceable-claims-pass-2.md) — claims/inferences that could not initially be traced cleanly to evidence.
+11. [`research/08-belief-change-pass-3.md`](research/08-belief-change-pass-3.md) — beliefs weakened, overturned, complicated or reframed, plus questions that changed during investigation.
+12. [`research/09-pass-6-scripts-digital-authorship-disability-and-intersectionality.md`](research/09-pass-6-scripts-digital-authorship-disability-and-intersectionality.md) — new research triggered during evacuation: sexual scripts, text-dominant sexual authorship, disability/crip theory, supported/interdependent agency, intersectionality, mindfulness limits.
+13. [`research/09a-pass-6-source-addendum-and-repairs.md`](research/09a-pass-6-source-addendum-and-repairs.md) — late repairs for texting, synchrony, movement, assertiveness, responsiveness/self-neglect, BDSM, scripts and mindfulness.
+14. [`research/10-residuals-and-exhaustion-audit.md`](research/10-residuals-and-exhaustion-audit.md) — what remains incomplete, weakly sourced, abstract-only, indirect, deliberately private, or still an open research gap.
 
 ## Earlier working notes
 
