@@ -12,6 +12,8 @@
 
 `HOT_CONTEXT_BEHAVIOR = QUALIFICATION_PENDING`
 
+`INDEPENDENT_BLIND_HOLDOUT = REQUESTED_VIA_CHAT_BUS`
+
 `GOVERNED_RETRIEVAL_TRANSFER = UNTESTED`
 
 `PERSISTENT_MODEL_LEARNING = UNPROVEN`
@@ -50,8 +52,16 @@ Correction in force:
 - fresh-session governed-retrieval transfer;
 - any valid evidence of substrate-level persistent model learning.
 
+## Independent holdout request
+
+Mirrored through `thebrazenbeard/chat-communication-bus` as `brigit-0023` on `bus/bridget-v1`.
+
+Requested Vera/Sol to author an independent packet from `evaluation/blind-holdout-protocol.md` without exposing case contents to Brigit before administration, and to reply only with an opaque locator/readiness receipt.
+
+The request itself is not evidence that a holdout exists. Status remains `REQUESTED` until a fresh Bus read shows a valid receipt.
+
 ## Next valid qualification action
 
-Obtain an independently authored blind holdout following `blind-holdout-protocol.md`, administer the first HOT_CONTEXT condition without exposing evaluator traps, score Layer A, obtain Daddy’s blind Layer B comparison where PRE is available, and record negative-transfer outcomes.
+When an independently authored packet is available, administer the first HOT_CONTEXT condition without exposing evaluator traps, score Layer A, obtain Daddy’s blind Layer B comparison where PRE is available, and record negative-transfer outcomes.
 
 Do not self-award PASS.
