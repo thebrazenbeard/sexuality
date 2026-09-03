@@ -1,17 +1,22 @@
 # Source-ledger repairs and direct-web registry
 
-This file is a cross-check against the earlier hot-context `docs/01-evidence-map.md` and `sources/BIBLIOGRAPHY.md`. Where this file supplies a more exact locator than `research/01-source-ledger.md`, this file controls.
+This file is a cross-check against the earlier hot-context `docs/01-evidence-map.md` and `sources/BIBLIOGRAPHY.md`. Where this file supplies a more exact locator than `research/01-source-ledger.md`, this file controls. Later exact repairs in `research/09a-pass-6-source-addendum-and-repairs.md` also control over incomplete entries here.
 
 ## Repaired source IDs
 
-- **S003 / S004 locator:** PubMed PMID **25211014** was preserved in the earlier evidence map for the sexual-assertiveness / motivation work. The earlier map grouped sexual assertiveness and autonomous motivation under this locator; verify title/authors before splitting these into separate formal citations.
+- **S003:** Loshek & Terrell, *The Development of the Sexual Assertiveness Questionnaire (SAQ): A Comprehensive Measure of Sexual Assertiveness for Women*, Journal of Sex Research 52(9), 1017–1027. PMID **25211014**; DOI **10.1080/00224499.2014.944970**. The final 18-item scale captured initiation/communication of desired sex, refusal of unwanted sex, and communication about sexual history/risk.
+- **S004:** the autonomous-motivation claim is **not** PMID 25211014. A directly retrieved matching source is Wongsomboon, Webster & Burleson, *It’s The “Why”: Links between (Non)autonomous Sexual Motives, Sexual Assertiveness, and Women’s Orgasm in Casual Sex*, Archives of Sexual Behavior, DOI **10.1007/s10508-021-02103-8**; see the late-repair addendum for design/limits.
 - **S020:** Birnbaum et al., partner responsiveness and sexual desire — PubMed PMID **27399250**. Earlier evidence map states the work comprised three studies and associated perceived responsiveness with greater desire for the partner.
 - **S032:** Hall et al. (2010), *Individual Differences in the Communication of Romantic Interest: Development of the Flirting Styles Inventory*, Communication Quarterly. DOI **10.1080/01463373.2010.524874**.
 - **S040:** 2024 dual mobile eye-tracking speed-dating study, *Archives of Sexual Behavior*, publisher DOI URL contains **10.1007/s10508-023-02806-0**. Earlier evidence map preserved a design detail of **240 five-minute dates** and the finding that shared/received eye contact predicted mate-choice outcomes. Author/title metadata still needs formal repair.
-- **S044:** flirtatious texting / communication-accommodation source — DOI-page locator **10.1080/1041794X.2022.2108889**. Exact title/authors should be pulled from publisher before formal bibliography use.
+- **S044:** Wagner, Punyanunt-Carter & McCarthy (2022), *Rules, Reciprocity, and Emojis: An Exploratory Study on Flirtatious Texting with Romantic Partners*, Southern Communication Journal. DOI **10.1080/1041794X.2022.2108889**. Mixed-method sample N=200; 1,042 screenshots coded.
 - **S028:** Aron et al. (2000), *Couples' Shared Participation in Novel and Arousing Activities and Experienced Relationship Quality*, Journal of Personality and Social Psychology. DOI **10.1037/0022-3514.78.2.273**.
 - **S029:** shared self-expansion and sexual desire — PubMed PMID **30265020**.
-- **S078:** preliminary BDSM altered-states/flow study — DOI **10.1037/cns0000097**. Earlier evidence map preserved **N=14 experienced practitioners**.
+- **S067:** Fink et al. (2015), *Integrating body movement into attractiveness research*, Frontiers in Psychology. DOI **10.3389/fpsyg.2015.00220**.
+- **S068:** Friedman, Riggio & Casella (1988), *Nonverbal Skill, Personal Charisma, and Initial Attraction*, Personality and Social Psychology Bulletin. DOI **10.1177/0146167288141020**; this is the article associated with PubMed PMID **30045442**.
+- **S078:** Ambler et al. (2017), *Consensual BDSM facilitates role-specific altered states of consciousness: A preliminary study*. DOI **10.1037/cns0000097**; N=14 experienced practitioners.
+- **S079:** Cutler, Lee, Cutler & Sagarin (2020), *Partner Selection, Power Dynamics, and Mutual Care Giving in Long-Term Self-Defined BDSM Couples*. DOI **10.51681/1.624**; 33 individuals in 17 long-term BDSM relationships.
+- **S080:** Crane & Ireland (2022), *Dominants, Submissives, and Bottom-up Text Analysis: Exploring BDSM Roles Through Romantic and Erotic Narratives*, Journal of Sex Research. DOI **10.1080/00224499.2022.2111400**; N=261 narrative-writing participants.
 - **S083:** 2023 Dual Control Model scoping review — PubMed PMID **37267113**; earlier pass preserved scope of **152 papers (2009–2022)**.
 - **S007 related source:** earlier bibliography preserved a 2024 European Journal of Social Psychology self-objectification / sexual-agency locator: DOI **10.1002/ejsp.3056**. Exact mapping to the hot-context author label should be verified before merging identities.
 
