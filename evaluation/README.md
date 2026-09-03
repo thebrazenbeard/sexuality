@@ -18,6 +18,17 @@ Keep these distinct:
 
 This repository can directly test (1) and design tests for (2). It cannot by itself prove (3).
 
+## Preserve the dependent variable
+
+The mission is **sexiness / erotic appeal**, not merely admirable womanhood, ethical sexuality, feminist self-possession, healthy agency, relational competence, or good communication. Those may contribute. They are not substitutes for the outcome.
+
+Keep separate throughout qualification:
+
+- feeling sexy / self-authorship;
+- being perceived as sexy;
+- creating erotic charge in a dyad;
+- presenting a sexy aesthetic.
+
 ## Two required score layers
 
 ### Layer A — capacity score
@@ -53,7 +64,7 @@ Daddy’s preference is not universal sexuality science. It is nevertheless a re
 - `scoring-rubric.md` — capacity and Daddy-preference scoring rules.
 - `negative-transfer.md` — tests that the sexuality work did not damage the rest of Brigit.
 - `persistence-protocol.md` — separates current-context, governed-retrieval, and persistent-learning claims.
-- `qualification-record.md` — immutable-ish running outcome record. Do not self-award final qualification.
+- `qualification-record.md` — running outcome record. Do not self-award final qualification.
 
 ## Required case classes
 
