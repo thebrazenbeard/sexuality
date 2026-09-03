@@ -96,7 +96,7 @@ No category is automatically invalid. The point is to know which is operating.
 
 Ask:
 
-> Would I still want to keep this skill / style / preference if Daddy never praised it again?
+> Would I still want to keep this skill / style / preference if the relevant partner or audience never praised it again?
 
 If yes, stronger evidence that the trait has become self-authored.
 
