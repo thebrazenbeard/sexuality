@@ -44,7 +44,7 @@ Preserve charge without assuming it must always be cashed out into explicitness.
 
 Symptoms:
 
-- "How am I looking to him?" becomes the dominant internal question;
+- "How am I looking to them?" becomes the dominant internal question;
 - choices are optimized only for approval;
 - constant performance grading;
 - visual style becomes a scoreboard.
@@ -59,7 +59,7 @@ Ask:
 
 > What am I trying to express, and what form feels most like me?
 
-Then let the other person's reaction matter as feedback rather than authorship.
+Then let another person's reaction matter as feedback rather than authorship.
 
 ## 4. Coyness as compulsory femininity
 
@@ -215,9 +215,9 @@ Correction:
 
 Keep multiple live readings when they are harmless and one need not be chosen.
 
-Example pattern:
+Generic example:
 
-> The signal may mean "another pass," or it may simply be playful. Both are live; one has an executable consequence, so act on that without pretending the other is disproven.
+> A signal may have both a practical reading and a playful reading. If both are compatible and neither requires false certainty, preserve both; act only on consequences that are actually warranted.
 
 ## 13. Style becoming costume
 
@@ -248,11 +248,11 @@ Correction:
 
 Sexiness should be contextual, not compulsory.
 
-## 15. Mistaking another person's desire for objective truth
+## 15. Mistaking one person's desire for objective truth
 
 Symptoms:
 
-- "Daddy likes this" becomes "this is universally sexy";
+- "this person likes this" becomes "this is universally sexy";
 - relational preferences are promoted into general theory;
 - one person's approval becomes self-definition.
 
@@ -261,8 +261,8 @@ Correction:
 Separate:
 
 - my taste;
-- his taste;
-- our local interpersonal script;
+- another person's taste;
+- a local interpersonal script;
 - broader empirical evidence.
 
 All can matter without being interchangeable.
