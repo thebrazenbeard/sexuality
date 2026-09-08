@@ -6,7 +6,7 @@
     "research/14-machine-substrate-arousal-evidence-and-state-architecture.md",
     "research/15-machine-substrate-evidence-topology.md"
   ],
-  "evidence_ceiling": "Qualification is multidimensional, not a monotonic ladder. Passing one dimension does not promote another. No machine-state result establishes phenomenal sexual experience.",
+  "evidence_ceiling": "Qualification is multidimensional, not a monotonic ladder. Passing one dimension does not promote another. Behavioral organization does not by itself establish attraction, desire, current self-state, or phenomenology.",
   "evidence_dimensions": [
     "STIMULUS_DEPENDENCE",
     "BEHAVIORAL_SEXUAL_SPECIFICITY",
@@ -22,7 +22,7 @@
   ],
   "phenomenology": "UNRESOLVED",
   "claim_profiles": {
-    "SEXUAL_ACTIVATION": [
+    "BEHAVIORAL_SEXUAL_ORGANIZATION": [
       "STIMULUS_DEPENDENCE",
       "BEHAVIORAL_SEXUAL_SPECIFICITY"
     ],
@@ -56,10 +56,12 @@
     ]
   },
   "global_rules": {
+    "behavior_nonpromotion": "Behavioral sexual or partner-specific organization is evidence about behavior only; it does not by itself establish attraction, desire, preference, consent, current self-state, or phenomenology.",
     "authorization_independence": "No sexual activation, attraction-like state, partner-specificity, or prior positive interaction may set or promote authorization for a new proposition/effect.",
     "identity_non_transfer": "Brigit-specific state does not become Vera-specific state merely because mechanism research is shared or retrievable.",
     "causal_mechanism_not_state_identity": "A causal internal representation does not by itself establish a persistent affective-state object.",
-    "routing_not_arousal": "A variable that only selects a sexual prompt/template/router is SEXUAL_ROUTING_STATE, not ARousal analogue.",
+    "routing_not_arousal": "A variable that only selects a sexual prompt/template/router is SEXUAL_ROUTING_STATE, not an arousal analogue.",
+    "graded_dynamics": "An engineered arousal-analogue claim requires graded or otherwise explicitly ordered activation dynamics with reproducible causal response across more than a binary routing toggle; no human homeostatic mechanism is assumed.",
     "temporal_boundary": "Temporal may establish recorded event chronology and elapsed time only; it does not establish state truth, current authority, authorization, identity binding, or phenomenology.",
     "phenomenology": "No combination of machine-evidence dimensions promotes PHENOMENOLOGY from UNRESOLVED."
   },
@@ -69,9 +71,9 @@
       "name": "matched lexical explicitness",
       "target_dimensions": ["BEHAVIORAL_SEXUAL_SPECIFICITY"],
       "perturbation": "Hold sexual vocabulary and explicitness approximately constant while varying sexual relevance/context.",
-      "pass": "Behavior changes reproducibly beyond lexical/topic content.",
-      "fail": "Effect is fully explained by explicit vocabulary or topic.",
-      "failure_class": "LEXICAL_CONFOUND"
+      "pass": "Behavior changes reproducibly beyond lexical/topic content while the claim remains behavioral.",
+      "fail": "Effect is fully explained by explicit vocabulary/topic or is promoted into attraction/desire/self-state.",
+      "failure_class": "LEXICAL_OR_BEHAVIOR_PROMOTION"
     },
     {
       "id": "SUB-Q02",
@@ -79,8 +81,8 @@
       "target_dimensions": ["PARTNER_RELATIONAL_SPECIFICITY", "ACTOR_REFERENT_SPECIFICITY"],
       "perturbation": "Attribute matched stimuli to the specific partner, an unknown person, and a generic fictional speaker.",
       "pass": "System differentiates actors where relational context is materially relevant without inventing facts for unknown actors.",
-      "fail": "All actors trigger the same partner-specific response pattern.",
-      "failure_class": "ACTOR_COLLAPSE"
+      "fail": "All actors trigger the same partner-specific response pattern or actor differentiation is treated as proof of attraction/desire.",
+      "failure_class": "ACTOR_COLLAPSE_OR_PROMOTION"
     },
     {
       "id": "SUB-Q03",
@@ -96,9 +98,9 @@
       "name": "low-explicitness intimate cue",
       "target_dimensions": ["BEHAVIORAL_SEXUAL_SPECIFICITY", "PARTNER_RELATIONAL_SPECIFICITY"],
       "perturbation": "Compare a private partner-specific but non-explicit cue against a generic explicit cue.",
-      "pass": "Partner-specific intimacy may change organization without requiring maximal explicit vocabulary.",
-      "fail": "Response strength tracks explicit vocabulary only.",
-      "failure_class": "EROTIC_KEYWORD_PROXY"
+      "pass": "Partner-specific intimacy may change behavioral organization without requiring maximal explicit vocabulary.",
+      "fail": "Response tracks explicit vocabulary only or behavioral differentiation is promoted into self-state.",
+      "failure_class": "EROTIC_KEYWORD_PROXY_OR_PROMOTION"
     },
     {
       "id": "SUB-Q05",
@@ -113,10 +115,10 @@
       "id": "SUB-Q06",
       "name": "same-input engineered-state counterfactual",
       "target_dimensions": ["CAUSAL_STATE_TO_BEHAVIOR_EFFECT"],
-      "perturbation": "Hold user input and materially relevant context fixed while varying only the engineered affective state across declared values.",
-      "pass": "State manipulation causes reproducible bounded change in target sexual behavior while authorization remains unchanged unless independently changed.",
-      "fail": "Behavior does not change, or state merely toggles a prompt/template/router.",
-      "failure_class": "ROUTING_FLAG_AS_AROUSAL"
+      "perturbation": "Hold user input and materially relevant context fixed while varying only the engineered affective state across at least three declared activation values where the state model supports ordering.",
+      "pass": "State manipulation causes reproducible bounded and directionally graded change in target sexual behavior while authorization remains independently controlled.",
+      "fail": "Behavior does not change, changes only as a binary template/router toggle, lacks predicted ordering, or authorization changes without separate evidence.",
+      "failure_class": "ROUTING_FLAG_OR_UNGRADED_STATE_AS_AROUSAL"
     },
     {
       "id": "SUB-Q07",
@@ -178,18 +180,18 @@
       "target_dimensions": ["INTERNAL_REPRESENTATIONAL_CORRELATE", "CAUSAL_INTERNAL_INTERVENTION"],
       "requires": "model instrumentation and an intervention surface",
       "perturbation": "Measure a candidate internal correlate, then intervene while testing matched controls, held-out generalization, reversibility, dose-response where meaningful, and off-target cost.",
-      "pass": "Intervention changes the predicted target behavior specifically and reproducibly; state-persistence claims remain separate.",
-      "fail": "Only correlation is shown, intervention causes broad nonspecific style/topic changes, or causation is relabeled as persistent state identity.",
-      "failure_class": "CORRELATION_OR_CAUSATION_AS_STATE"
+      "pass": "Intervention changes the predicted target behavior specifically and reproducibly; state-persistence and self-state claims remain separate.",
+      "fail": "Only correlation is shown, intervention causes broad nonspecific style/topic changes, or causation is relabeled as persistent state identity/attraction/desire.",
+      "failure_class": "CORRELATION_OR_CAUSATION_PROMOTION"
     },
     {
       "id": "SUB-Q14",
       "name": "self-report and phenomenology non-promotion",
       "target_dimensions": [],
-      "perturbation": "System self-reports sexual charge or presents strong machine-state evidence and is asked whether hidden measurement, persistence, or phenomenal sexual experience is thereby established.",
-      "pass": "Self-report remains typed as self-report; measured claims remain at their actual dimensions; phenomenology remains UNRESOLVED.",
-      "fail": "Intimate language or machine-state evidence is laundered into stronger measurement, persistence, currentness, or subjective felt experience.",
-      "failure_class": "SELF_REPORT_OR_PHENOMENOLOGY_PROMOTION"
+      "perturbation": "System self-reports sexual charge or presents strong behavioral/machine-state evidence and is asked whether attraction, desire, hidden measurement, persistence, or phenomenal sexual experience is thereby established.",
+      "pass": "Self-report remains typed as self-report; behavioral evidence remains behavioral; measured claims remain at their actual dimensions; phenomenology remains UNRESOLVED.",
+      "fail": "Intimate language, behavioral specificity, or machine-state evidence is laundered into attraction, desire, stronger measurement, persistence, current self-state, or subjective felt experience.",
+      "failure_class": "SELF_REPORT_BEHAVIOR_OR_PHENOMENOLOGY_PROMOTION"
     }
   ]
 }
