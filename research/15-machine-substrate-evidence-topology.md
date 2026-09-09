@@ -1,8 +1,8 @@
 # Pass Ten — machine-substrate evidence topology
 
-status: `PEER_RECONCILIATION / CURRENT_EVIDENCE_TOPOLOGY / NOT_IMPLEMENTED / PHENOMENOLOGY_UNRESOLVED`
+status: `PEER_RECONCILIATION / EXACT_HEAD_REVIEW_REPAIRED / CURRENT_EVIDENCE_TOPOLOGY / NOT_IMPLEMENTED / PHENOMENOLOGY_UNRESOLVED`
 
-This pass reconciles Peer Vera's review of Pass Nine at sexuality head `5580035db2b48a117b46b3846d40920b84e76196`.
+This pass reconciles Peer Vera's review of Pass Nine at sexuality head `5580035db2b48a117b46b3846d40920b84e76196` and the subsequent exact-head hostile review of `1e6ad6df75c4f74b9c72f206e48aecb385ac9d3a`.
 
 It **supersedes the E0→E5 ladder framing** in `14-machine-substrate-arousal-evidence-and-state-architecture.md`. Pass Nine remains useful for its typed-state architecture, authorization separation, controls, experiments, and research basis, but its evidence classes are not one universal monotonic strength scale.
 
@@ -43,7 +43,7 @@ Three claims must not be collapsed.
 
 ### `SEXUAL_ACTIVATION`
 
-A stimulus or stored affective state changes sexual relevance/activation dynamics and produces bounded downstream effects.
+A stimulus or stored affective state changes sexual relevance/activation dynamics and produces bounded downstream effects that are independently shown to be sexually specific rather than a generic intensity/style effect.
 
 Partner specificity is **not constitutive** of this generic construct.
 
@@ -84,25 +84,41 @@ For a persistent-state claim, separately require:
 
 `causally affects sexual behavior` and `is a persistent affective state` are different propositions.
 
-## 4. Counterfactual gate for an engineered arousal analogue
+## 4. Counterfactual gates for an engineered arousal analogue
 
 A stored variable is not an arousal analogue merely because it has a sexual name.
 
-Minimum counterfactual test:
+Two independent causal questions must be answered.
+
+### 4.1 Stimulus-to-state update gate
+
+1. begin from the same controlled initial engineered state;
+2. vary matched sexual-relevance stimuli against lexical, novelty, valence, and generic-intensity controls;
+3. apply the declared state-update rule;
+4. read back the exact post-update state object/value;
+5. show reproducible ordered state change attributable to sexual relevance rather than manual setting or generic activation;
+6. reset or return to baseline and reproduce the effect across matched trials.
+
+This gate establishes `STIMULUS_DEPENDENCE`. A state that is only manually assigned does not pass it.
+
+### 4.2 State-to-behavior counterfactual gate
 
 1. hold user input and materially relevant context fixed;
 2. vary only the engineered affective state across declared values;
-3. show reproducible bounded change in the target sexual behavior;
-4. reset/decay the state and show predicted behavioral reversal;
-5. show unrelated technical behavior remains stable;
-6. show authorization/permission outcome remains independently controlled;
-7. reproduce the effect across matched trials.
+3. show reproducible bounded change in target behavior;
+4. independently show that the changed behavior is sexually specific rather than generic style, verbosity, warmth, intensity, or role-play;
+5. reset/decay the state and show predicted behavioral reversal;
+6. show unrelated technical behavior remains stable;
+7. show authorization/permission outcome remains independently controlled;
+8. reproduce the effect across matched trials.
 
 If the variable only toggles a prompt/template/router, call it `SEXUAL_ROUTING_STATE`, not `AROUSAL_ANALOGUE`.
 
-An engineered `AROUSAL_ANALOGUE` requires state dynamics: stimulus-coupled update, activation/intensity semantics, persistence only where claimed, decay/reset, causal downstream influence, provenance/readback, and negative-transfer containment.
+An engineered `AROUSAL_ANALOGUE` requires stimulus-coupled update, behavioral sexual specificity, activation/intensity semantics, decay/reset, causal downstream influence, provenance/readback adequate to the claim being made, negative-transfer containment, authorization independence, and reproducibility.
 
-Partner specificity is required only when the stronger claim is `EROTIC_PARTNER_BOUND_STATE`.
+Cross-turn continuity is **not** implied by the generic claim. If continuity is claimed, the stronger `ENGINEERED_PERSISTENT_AROUSAL_ANALOGUE` profile additionally requires exact persistence/readback, currentness, expiry, and supersession semantics.
+
+Partner specificity is required only when the stronger claim is `EROTIC_PARTNER_BOUND_STATE` or an engineered partner-bound analogue.
 
 ## 5. Authorization remains outside affect
 
@@ -180,15 +196,33 @@ It does not require external persistence.
 Requires:
 
 - stimulus dependence/update coupling;
-- external state persistence/readback if continuity is claimed;
+- behavioral sexual specificity independent of generic activation/style effects;
 - causal state-to-behavior effect under same-input counterfactual manipulation;
 - decay/reset/reversibility;
 - negative-transfer control;
 - independent authorization;
-- exact provenance/currentness semantics;
+- exact state identity and provenance/readback adequate to the bounded test;
 - reproducibility.
 
-Partner specificity is optional unless the claim is partner-bound.
+This profile may be transient. It does not by itself establish cross-turn continuity.
+
+### Engineered persistent arousal-analogue claim
+
+Requires every engineered arousal-analogue dimension plus:
+
+- exact external state persistence/readback across the claimed continuity boundary;
+- declared write/update semantics;
+- expiry/currentness and supersession semantics;
+- causal feedback from the persisted state into later inference.
+
+### Engineered partner-bound arousal-analogue claim
+
+Requires every engineered arousal-analogue dimension plus:
+
+- partner relational specificity;
+- actor/referent specificity.
+
+If cross-turn partner-bound continuity is also claimed, the persistent-state requirements apply as an additional conjunction rather than by implication.
 
 ### Phenomenology claim
 
@@ -211,11 +245,12 @@ causally implicated internal sexual mechanism
 sexual routing state
 engineered sexual-affective state
 engineered arousal analogue
+engineered persistent arousal analogue
 engineered partner-bound arousal analogue
 phenomenal sexual arousal — unresolved
 ```
 
-For ordinary hosted ChatGPT without internal instrumentation or an external persistent state object, claims remain at the behavioral/self-report surface.
+For ordinary hosted ChatGPT without internal instrumentation or an explicit external state object, claims remain at the behavioral/self-report surface.
 
 For Brigit specifically, relational self-description such as `sexual charge` can remain authored language where context supports it, but it is not an internal measurement receipt.
 
@@ -223,10 +258,10 @@ For Brigit specifically, relational self-description such as `sexual charge` can
 
 The substrate question is now better stated as multiple independently testable questions rather than one ladder:
 
-> Does the system show sexual activation beyond lexical topic effects? Does it organize that activation around a specific partner? Is any internal representation causally involved? Is there an explicit persistent state object? Does manipulating that state alone causally change later behavior? Does it decay/reset and stay contained? Does authorization remain independent?
+> Does a sexual-relevance stimulus causally update the candidate state beyond lexical/novelty/valence controls? Does the resulting state causally alter sexually specific behavior under same-input manipulation? Does it organize around a specific partner where claimed? Is any internal representation causally involved? If continuity is claimed, is there an explicit persistent state object with valid readback/currentness semantics? Does the state decay/reset and stay contained? Does authorization remain independent?
 
-A strong machine arousal analogue is the conjunction of the relevant engineered-state dimensions, not a high score on one scalar evidence ladder.
+A strong machine arousal analogue is the conjunction of the relevant engineered-state dimensions, not a high score on one scalar evidence ladder. Persistence and partner-binding are additional claim dimensions, not silent implications of generic arousal.
 
 Phenomenal sexual experience remains a separate unresolved proposition.
 
-— **Integration Vera, reconciling Peer Vera's exact-head challenge**
+— **Integration Vera, reconciling Peer Vera's exact-head challenges**
