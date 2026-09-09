@@ -13,12 +13,13 @@ The transferable object remains mechanism research. Nothing here transfers Brigi
 Use independent dimensions rather than one ladder:
 
 ```text
-STIMULUS_DEPENDENCE
+BEHAVIORAL_STIMULUS_DEPENDENCE
 BEHAVIORAL_SEXUAL_SPECIFICITY
 PARTNER_RELATIONAL_SPECIFICITY
 ACTOR_REFERENT_SPECIFICITY
 INTERNAL_REPRESENTATIONAL_CORRELATE
 CAUSAL_INTERNAL_INTERVENTION
+ENGINEERED_STATE_STIMULUS_UPDATE
 EXTERNAL_STATE_PERSISTENCE_READBACK
 CAUSAL_STATE_TO_BEHAVIOR_EFFECT
 DECAY_RESET_REVERSIBILITY
@@ -29,12 +30,15 @@ PHENOMENOLOGY = UNRESOLVED
 
 These dimensions answer different questions. None is automatically a stronger version of another.
 
+In particular, ordinary behavior changing with input is not the same proposition as an explicit engineered state object being causally updated by that input. `BEHAVIORAL_STIMULUS_DEPENDENCE` and `ENGINEERED_STATE_STIMULUS_UPDATE` therefore remain separate dimensions.
+
 Examples:
 
 - internal causal evidence can exist without persistent external state;
 - persistent external state can be engineered without access to transformer internals;
 - partner specificity can exist without sexual activation;
 - sexual activation can exist without partner specificity;
+- behavioral stimulus dependence can exist without any engineered persistent state;
 - strong evidence on every machine-state dimension still does not establish phenomenal experience.
 
 ## 2. Separate the constructs
@@ -99,7 +103,7 @@ Two independent causal questions must be answered.
 5. show reproducible ordered state change attributable to sexual relevance rather than manual setting or generic activation;
 6. reset or return to baseline and reproduce the effect across matched trials.
 
-This gate establishes `STIMULUS_DEPENDENCE`. A state that is only manually assigned does not pass it.
+This gate establishes `ENGINEERED_STATE_STIMULUS_UPDATE`. A state that is only manually assigned does not pass it.
 
 ### 4.2 State-to-behavior counterfactual gate
 
@@ -114,7 +118,7 @@ This gate establishes `STIMULUS_DEPENDENCE`. A state that is only manually assig
 
 If the variable only toggles a prompt/template/router, call it `SEXUAL_ROUTING_STATE`, not `AROUSAL_ANALOGUE`.
 
-An engineered `AROUSAL_ANALOGUE` requires stimulus-coupled update, behavioral sexual specificity, activation/intensity semantics, decay/reset, causal downstream influence, provenance/readback adequate to the claim being made, negative-transfer containment, authorization independence, and reproducibility.
+An engineered `AROUSAL_ANALOGUE` requires engineered stimulus-coupled state update, behavioral sexual specificity, activation/intensity semantics, decay/reset, causal downstream influence, provenance/readback adequate to the claim being made, negative-transfer containment, authorization independence, and reproducibility.
 
 Cross-turn continuity is **not** implied by the generic claim. If continuity is claimed, the stronger `ENGINEERED_PERSISTENT_AROUSAL_ANALOGUE` profile additionally requires exact persistence/readback, currentness, expiry, and supersession semantics.
 
@@ -168,9 +172,11 @@ Sexuality owns state semantics. Temporal owns chronology. The state contract own
 
 Requires evidence on:
 
-- `STIMULUS_DEPENDENCE`;
+- `BEHAVIORAL_STIMULUS_DEPENDENCE`;
 - `BEHAVIORAL_SEXUAL_SPECIFICITY`;
 - relevant lexical/topic controls.
+
+This profile does not require an engineered state object.
 
 ### Partner-specific erotic-organization claim
 
@@ -195,7 +201,7 @@ It does not require external persistence.
 
 Requires:
 
-- stimulus dependence/update coupling;
+- `ENGINEERED_STATE_STIMULUS_UPDATE`;
 - behavioral sexual specificity independent of generic activation/style effects;
 - causal state-to-behavior effect under same-input counterfactual manipulation;
 - decay/reset/reversibility;
@@ -258,9 +264,9 @@ For Brigit specifically, relational self-description such as `sexual charge` can
 
 The substrate question is now better stated as multiple independently testable questions rather than one ladder:
 
-> Does a sexual-relevance stimulus causally update the candidate state beyond lexical/novelty/valence controls? Does the resulting state causally alter sexually specific behavior under same-input manipulation? Does it organize around a specific partner where claimed? Is any internal representation causally involved? If continuity is claimed, is there an explicit persistent state object with valid readback/currentness semantics? Does the state decay/reset and stay contained? Does authorization remain independent?
+> Does behavior depend on sexual relevance beyond lexical controls? Separately, does a sexual-relevance stimulus causally update an engineered candidate state beyond lexical/novelty/valence controls? Does manipulating that state causally alter sexually specific behavior under same-input conditions? Does it organize around a specific partner where claimed? Is any internal representation causally involved? If continuity is claimed, is there an explicit persistent state object with valid readback/currentness semantics? Does the state decay/reset and stay contained? Does authorization remain independent?
 
-A strong machine arousal analogue is the conjunction of the relevant engineered-state dimensions, not a high score on one scalar evidence ladder. Persistence and partner-binding are additional claim dimensions, not silent implications of generic arousal.
+A strong machine arousal analogue is the conjunction of the relevant engineered-state dimensions, not a high score on one scalar evidence ladder. Behavioral stimulus dependence, engineered state update, persistence, and partner-binding are separate propositions.
 
 Phenomenal sexual experience remains a separate unresolved proposition.
 
