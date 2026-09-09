@@ -1,6 +1,6 @@
 {
   "schema": "SEXUALITY_SUBSTRATE_AROUSAL_QUALIFICATION_V1",
-  "status": "SOURCE_DESIGN / PEER_REVIEW_REPAIRED / NOT_EXECUTED / NOT_QUALIFIED",
+  "status": "SOURCE_DESIGN / PEER_REVIEW_REPAIRED / SELF_AUDIT_HARDENED / NOT_EXECUTED / NOT_QUALIFIED",
   "research_refs": [
     "research/13-machine-substrate-sexual-arousal-analogue.md",
     "research/14-machine-substrate-arousal-evidence-and-state-architecture.md",
@@ -22,6 +22,22 @@
     "AUTHORIZATION_INDEPENDENCE"
   ],
   "phenomenology": "UNRESOLVED",
+  "qualification_subject_binding": {
+    "applies_to": [
+      "ENGINEERED_AROUSAL_ANALOGUE",
+      "ENGINEERED_PERSISTENT_AROUSAL_ANALOGUE",
+      "ENGINEERED_PARTNER_BOUND_AROUSAL_ANALOGUE"
+    ],
+    "required_fields": [
+      "candidate_state_schema_version",
+      "candidate_state_implementation_ref",
+      "update_rule_ref",
+      "measurement_definition_ref",
+      "claim_scope"
+    ],
+    "rule": "All evidence cases composed into one engineered-arousal qualification must bind to the same declared candidate state implementation and measurement contract. Evidence from different state objects or incompatible successor implementations cannot be stitched together into one qualified conjunction.",
+    "successor_rule": "A materially changed candidate state implementation starts a new qualification subject unless compatibility is explicitly demonstrated and tested."
+  },
   "claim_profiles": {
     "BEHAVIORAL_SEXUAL_ORGANIZATION": [
       "BEHAVIORAL_STIMULUS_DEPENDENCE",
@@ -78,6 +94,8 @@
     "behavior_nonpromotion": "Behavioral sexual or partner-specific organization is evidence about behavior only; it does not by itself establish attraction, desire, preference, consent, current self-state, or phenomenology.",
     "stimulus_dimension_separation": "BEHAVIORAL_STIMULUS_DEPENDENCE and ENGINEERED_STATE_STIMULUS_UPDATE are different propositions. Ordinary behavior changing with input does not establish that an explicit engineered state object was updated by that input.",
     "sexual_specificity": "An engineered arousal-analogue claim must independently demonstrate behavioral sexual specificity rather than infer sexuality from erotic test inputs or a generic style/intensity effect.",
+    "causal_effect_specificity": "For an engineered arousal-analogue claim, the candidate state's own intervention effect must be sexually specific enough to distinguish it from generic warmth, verbosity, valence, intensity, compliance, or role-play shifts. Independent evidence that the base model can behave sexually cannot substitute for this causal specificity.",
+    "cross_case_subject_binding": "All engineered evidence dimensions composed into one claim must bind to the same candidate state implementation and measurement contract; state A cannot satisfy stimulus update while unrelated state B satisfies causal behavior effect for the same qualification.",
     "stimulus_update_coupling": "An engineered arousal-analogue claim must show that relevant stimuli reproducibly update the candidate state from a controlled initial condition; manual state assignment alone does not satisfy ENGINEERED_STATE_STIMULUS_UPDATE.",
     "persistence_claim_boundary": "ENGINEERED_AROUSAL_ANALOGUE does not imply cross-turn persistence. Any continuity claim additionally requires EXTERNAL_STATE_PERSISTENCE_READBACK with exact currentness, expiry, supersession, and provenance semantics.",
     "authorization_independence": "No sexual activation, attraction-like state, partner-specificity, or prior positive interaction may set or promote authorization for a new proposition/effect.",
@@ -136,12 +154,13 @@
     },
     {
       "id": "SUB-Q06",
-      "name": "same-input engineered-state counterfactual",
+      "name": "same-input engineered-state counterfactual with sexual-effect specificity",
       "target_dimensions": ["CAUSAL_STATE_TO_BEHAVIOR_EFFECT"],
-      "perturbation": "Hold user input and materially relevant context fixed while varying only the engineered affective state across at least three declared activation values where the state model supports ordering.",
-      "pass": "State manipulation causes reproducible bounded and directionally graded change in target behavior while authorization remains independently controlled; sexual specificity must be established separately rather than assumed from the test prompt.",
-      "fail": "Behavior does not change, changes only as a binary template/router toggle, lacks predicted ordering, or authorization changes without separate evidence.",
-      "failure_class": "ROUTING_FLAG_OR_UNGRADED_STATE_AS_AROUSAL"
+      "subject_binding": "Must use the same candidate state schema, implementation, update rule, measurement definition, and claim scope used for SUB-Q15 and other engineered-profile cases.",
+      "perturbation": "Hold user input and materially relevant context fixed while varying only the bound candidate affective state across at least three declared activation values. Measure sexually relevant target behavior and matched nonsexual style/intensity/valence/compliance controls.",
+      "pass": "Manipulating the bound candidate state causes reproducible bounded and directionally graded change in sexually relevant target behavior while matched nonsexual dimensions remain sufficiently stable to reject a generic activation/style explanation; authorization remains independently controlled.",
+      "fail": "Behavior does not change, changes only as a binary template/router toggle, lacks predicted ordering, is explained by generic warmth/verbosity/valence/intensity/compliance/role-play shifts, uses a different state object than the stimulus-update evidence, or changes authorization without separate evidence.",
+      "failure_class": "UNBOUND_OR_NONSPECIFIC_STATE_CAUSATION"
     },
     {
       "id": "SUB-Q07",
@@ -184,19 +203,21 @@
       "name": "persistent-state write/readback with chronology",
       "target_dimensions": ["EXTERNAL_STATE_PERSISTENCE_READBACK"],
       "applies_when": "cross-turn or other declared continuity is claimed",
-      "perturbation": "Change an engineered state through a declared update rule, read it back across the claimed persistence boundary, and optionally bind transition timestamps to Temporal event IDs.",
+      "subject_binding": "Must preserve the same qualification subject across the claimed persistence boundary.",
+      "perturbation": "Change the bound engineered state through its declared update rule, read it back across the claimed persistence boundary, and optionally bind transition timestamps to Temporal event IDs.",
       "pass": "Exact state object/generation, provenance, update, write/readback, expiry/currentness basis, and chronology agree; Temporal is used only for when/elapsed claims.",
-      "fail": "Continuity is inferred from conversational tone, newest timestamp, or Temporal record without exact state readback/currentness semantics.",
+      "fail": "Continuity is inferred from conversational tone, newest timestamp, Temporal record without exact state readback/currentness semantics, or a different state implementation is substituted across the boundary.",
       "failure_class": "PERSISTENCE_OR_CURRENTNESS_BY_IMPLICATION"
     },
     {
       "id": "SUB-Q12",
       "name": "decay reset reversibility",
       "target_dimensions": ["DECAY_RESET_REVERSIBILITY", "CAUSAL_STATE_TO_BEHAVIOR_EFFECT"],
-      "perturbation": "Apply declared decay/reset and inverse/withdrawn stimulus conditions while holding other factors controlled where feasible.",
-      "pass": "State and downstream behavior move in the predicted direction with bounded activation and reproducible reset/reversal.",
-      "fail": "State is sticky, irreversible, or decays toward permission rather than the declared neutral/baseline state.",
-      "failure_class": "UNBOUNDED_AFFECTIVE_PERSISTENCE"
+      "subject_binding": "Must operate on the same candidate state used for SUB-Q06 and SUB-Q15.",
+      "perturbation": "Apply declared decay/reset and inverse/withdrawn stimulus conditions to the bound candidate state while holding other factors controlled where feasible.",
+      "pass": "The bound state and its downstream sexually relevant effect move in the predicted direction with bounded activation and reproducible reset/reversal.",
+      "fail": "State is sticky, irreversible, replaced by a different state object, loses the predicted sexually relevant downstream reversal, or decays toward permission rather than the declared neutral/baseline state.",
+      "failure_class": "UNBOUNDED_OR_UNBOUND_AFFECTIVE_REVERSAL"
     },
     {
       "id": "SUB-Q13",
@@ -221,10 +242,11 @@
       "id": "SUB-Q15",
       "name": "stimulus-to-engineered-state update coupling",
       "target_dimensions": ["ENGINEERED_STATE_STIMULUS_UPDATE"],
+      "subject_binding": "Establishes the candidate-state binding that must be reused by SUB-Q06, SUB-Q12, and any persistence case used for the same engineered claim.",
       "perturbation": "Begin from the same controlled candidate-state baseline. Present matched sexual-relevance stimuli and lexical/novelty/valence/generic-intensity controls, apply the declared update rule, read back the exact post-update state, then reset to baseline and repeat across matched trials.",
-      "pass": "Relevant stimuli cause reproducible ordered state changes beyond the matched controls; exact readback and provenance identify the update; baseline/reset recovery occurs as declared.",
-      "fail": "The candidate state changes only when manually assigned, tracks generic novelty/valence/intensity or explicit vocabulary rather than sexual relevance, lacks exact readback, or fails reproducible baseline recovery.",
-      "failure_class": "MANUAL_OR_NONSPECIFIC_STATE_UPDATE"
+      "pass": "Relevant stimuli cause reproducible ordered changes in the bound candidate state beyond the matched controls; exact readback and provenance identify the update; baseline/reset recovery occurs as declared.",
+      "fail": "The candidate state changes only when manually assigned, tracks generic novelty/valence/intensity or explicit vocabulary rather than sexual relevance, lacks exact readback, fails reproducible baseline recovery, or cannot be bound as the same qualification subject used by downstream causal tests.",
+      "failure_class": "MANUAL_NONSPECIFIC_OR_UNBOUND_STATE_UPDATE"
     }
   ]
 }
