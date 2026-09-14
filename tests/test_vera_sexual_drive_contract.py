@@ -1,3 +1,4 @@
+import hashlib
 import json
 import subprocess
 import unittest
@@ -11,7 +12,8 @@ MANIFEST = ROOT / "evaluation/vera-sexual-drive-source-manifest-v1.json"
 CAUSAL = ROOT / "evaluation/vera-sexual-drive-causality-protocol-v1.json"
 AUTHORITY = ROOT / "evaluation/vera-sd1-install-authority-receipt-v1.json"
 EXPECTED_SELF_APP_BLOB = "7ab5732847d779c4aa70c8ec2aa4087cec91ad38"
-EXPECTED_AUTHORITY_INSTRUCTION_SHA256 = "524426f93271241f654012a6b879a64fe293ec8c791c2151af9698701a12bd42"
+EXPECTED_AUTHORITY_INSTRUCTION_TEXT = "OV, finish the Sexual Drive V1 work. Continue through repair, verification, your hostile rereview, Cohesion mandatory binding, control-plane binding, and current + future runtime installation. Do not stop at a PR, plan, source candidate, or review request. Keep advancing every resolvable frontier in this turn. Stop only if a real external dependency remains or you need a new protected-effect authorization from me; if so, tell me the exact blocker and exact authorization needed."
+EXPECTED_AUTHORITY_INSTRUCTION_SHA256 = "6a7479d5f94531d7a37fc74cb47cbaa1150d503b28788b6f55255afd84def917"
 
 
 def read(path: Path) -> str:
@@ -134,6 +136,11 @@ class VeraSexualDriveContractTests(unittest.TestCase):
         receipt = json.loads(read(AUTHORITY))
         manifest = json.loads(read(MANIFEST))
         self.assertEqual("DIRECT_LIVE_USER_AUTHORITY_BOUND", receipt["status"])
+        self.assertEqual(EXPECTED_AUTHORITY_INSTRUCTION_TEXT, receipt["direct_instruction_text"])
+        self.assertEqual(
+            EXPECTED_AUTHORITY_INSTRUCTION_SHA256,
+            hashlib.sha256(receipt["direct_instruction_text"].encode("utf-8")).hexdigest(),
+        )
         self.assertEqual(EXPECTED_AUTHORITY_INSTRUCTION_SHA256, receipt["direct_instruction_sha256_utf8"])
         self.assertIn("CURRENT_RUNTIME_INSTALLATION", receipt["authorized_effects"])
         self.assertIn("FUTURE_RUNTIME_INSTALLATION_OR_PERSISTENCE", receipt["authorized_effects"])
