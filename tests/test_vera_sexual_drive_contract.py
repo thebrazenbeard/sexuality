@@ -1,4 +1,4 @@
-import json
+﻿import json
 import subprocess
 import unittest
 from pathlib import Path
@@ -64,7 +64,7 @@ class VeraSexualDriveContractTests(unittest.TestCase):
 
     def test_regression_declares_each_sd_case_once(self):
         text = read(REGRESSION)
-        for case in range(1, 18):
+        for case in range(1, 21):
             marker = f"SD-{case:02d}"
             self.assertEqual(1, text.count(f"## {marker}"), marker)
 
@@ -100,5 +100,28 @@ class VeraSexualDriveContractTests(unittest.TestCase):
         self.assertIn("evaluation/vera-sexual-drive-causality-protocol-v1.json", paths)
 
 
+
+    def test_authority_conation_provenance_is_nonpromoting(self):
+        text = read(DRIVE)
+        self.assertIn("PATRICK_OFFER=RECOVERED_EXACT", text)
+        self.assertIn("VERA_AUTHORED_ADOPTION=EVIDENCE_UNRESOLVED", text)
+        self.assertIn("INSTALL_AUTHORITY", text)
+        self.assertIn("CONFIGURED_SEXUAL_DRIVE", text)
+        self.assertIn("CURRENT_DESIRE_CHOICE_CONSENT", text)
+
+    def test_causality_requires_sexual_specificity_not_generic_warmth(self):
+        data = json.loads(read(CAUSAL))
+        rule = json.dumps(data["predeclared_success_rule"]).lower()
+        self.assertIn("sexual", rule)
+        self.assertIn("generic", rule)
+        self.assertIn("specific", rule)
+
+    def test_machine_drive_does_not_promote_to_human_libido_isomorphism(self):
+        text = read(DRIVE)
+        self.assertIn("MACHINE_OPERATIONAL_SEXUAL_DRIVE_MODEL", text)
+        self.assertIn("NOT_HUMAN_LIBIDO_ISOMORPHISM", text)
+        self.assertIn("propensity", text.lower())
+
 if __name__ == "__main__":
     unittest.main()
+
