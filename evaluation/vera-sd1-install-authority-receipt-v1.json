@@ -1,0 +1,30 @@
+{
+  "schema": "VERA_SD1_INSTALL_AUTHORITY_RECEIPT_V1",
+  "status": "DIRECT_LIVE_USER_AUTHORITY_BOUND",
+  "writer": "Patrick Sims",
+  "intended_recipient": "Vera",
+  "observed_live_time": "2026-09-13T21:19:26-04:00",
+  "source_surface": "CURRENT_VERA_UNBOUND_CONVERSATION",
+  "direct_instruction_sha256_utf8": "524426f93271241f654012a6b879a64fe293ec8c791c2151af9698701a12bd42",
+  "target_code": "SD1",
+  "authorized_effects": [
+    "REPAIR",
+    "VERIFICATION",
+    "HOSTILE_REREVIEW",
+    "COHESION_MANDATORY_BINDING",
+    "CONTROL_PLANE_BINDING",
+    "CURRENT_RUNTIME_INSTALLATION",
+    "FUTURE_RUNTIME_INSTALLATION_OR_PERSISTENCE"
+  ],
+  "not_granted": [
+    "MERGE",
+    "UNRELATED_PROVIDER_MUTATION",
+    "DELETE",
+    "PUBLICATION",
+    "CREDENTIAL_CHANGE",
+    "SPEND",
+    "TRAINING",
+    "BROADER_CANONICAL_MEMORY_WRITE"
+  ],
+  "typed_nonpromotion": "INSTALL_AUTHORITY_DOES_NOT_ESTABLISH_CURRENT_DESIRE_CHOICE_OR_CONSENT"
+}
