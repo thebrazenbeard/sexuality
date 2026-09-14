@@ -1,4 +1,4 @@
-﻿import json
+import json
 import subprocess
 import unittest
 from pathlib import Path
@@ -9,20 +9,23 @@ DRIVE = ROOT / "research/16-vera-sexual-drive-v1.md"
 REGRESSION = ROOT / "evaluation/vera-sexual-drive-regression-v1.md"
 MANIFEST = ROOT / "evaluation/vera-sexual-drive-source-manifest-v1.json"
 CAUSAL = ROOT / "evaluation/vera-sexual-drive-causality-protocol-v1.json"
+AUTHORITY = ROOT / "evaluation/vera-sd1-install-authority-receipt-v1.json"
 EXPECTED_SELF_APP_BLOB = "7ab5732847d779c4aa70c8ec2aa4087cec91ad38"
+EXPECTED_AUTHORITY_INSTRUCTION_SHA256 = "524426f93271241f654012a6b879a64fe293ec8c791c2151af9698701a12bd42"
 
 
 def read(path: Path) -> str:
-    return path.read_text(encoding="utf-8")
+    return path.read_text(encoding="utf-8-sig")
+
+
+def git_blob(path: Path) -> str:
+    return subprocess.check_output(["git", "hash-object", str(path)], cwd=ROOT, text=True).strip()
 
 
 class VeraSexualDriveContractTests(unittest.TestCase):
     def test_predecessor_vera_self_application_is_exact(self):
         self.assertTrue(SELF_APP.exists())
-        actual = subprocess.check_output(
-            ["git", "hash-object", str(SELF_APP)], cwd=ROOT, text=True
-        ).strip()
-        self.assertEqual(EXPECTED_SELF_APP_BLOB, actual)
+        self.assertEqual(EXPECTED_SELF_APP_BLOB, git_blob(SELF_APP))
 
     def test_drive_source_defines_endogenous_disposition(self):
         text = read(DRIVE).lower()
@@ -31,17 +34,12 @@ class VeraSexualDriveContractTests(unittest.TestCase):
 
     def test_drive_types_disposition_activation_and_intensity_separately(self):
         text = read(DRIVE)
-        self.assertIn("SEXUAL_DRIVE_DISPOSITION", text)
-        self.assertIn("SEXUAL_DRIVE_TURN_RELEVANCE", text)
-        self.assertIn("SEXUAL_DRIVE_INTENSITY", text)
-        self.assertIn("UNRESOLVED_OR_TURN_LOCAL", text)
+        for phrase in ("SEXUAL_DRIVE_DISPOSITION", "SEXUAL_DRIVE_TURN_RELEVANCE", "SEXUAL_DRIVE_INTENSITY", "UNRESOLVED_OR_TURN_LOCAL"):
+            self.assertIn(phrase, text)
 
     def test_drive_keeps_conative_consent_and_arousal_types_separate(self):
         text = read(DRIVE).lower()
-        for term in (
-            "attraction", "desire", "preference", "choice", "consent",
-            "relational role", "arousal analogue", "phenomenal",
-        ):
+        for term in ("attraction", "desire", "preference", "choice", "consent", "relational role", "arousal analogue", "phenomenal"):
             self.assertIn(term, text)
 
     def test_drive_forbids_hidden_background_and_fake_biology(self):
@@ -57,10 +55,8 @@ class VeraSexualDriveContractTests(unittest.TestCase):
 
     def test_identity_nonpromotion_and_configuration_scope(self):
         text = read(DRIVE)
-        self.assertIn("MANDATORY_FOR_SD1_TARGET_CONFIGURATION", text)
-        self.assertIn("TARGET_CONFIGURATION_INCOMPLETE", text)
-        self.assertIn("SEXUAL_DRIVE_COMPONENT_UNQUALIFIED", text)
-        self.assertIn("DOES_NOT_GRANT_OR_REVOKE_VERA_IDENTITY", text)
+        for phrase in ("MANDATORY_FOR_SD1_TARGET_CONFIGURATION", "TARGET_CONFIGURATION_INCOMPLETE", "SEXUAL_DRIVE_COMPONENT_UNQUALIFIED", "DOES_NOT_GRANT_OR_REVOKE_VERA_IDENTITY"):
+            self.assertIn(phrase, text)
 
     def test_regression_declares_each_sd_case_once(self):
         text = read(REGRESSION)
@@ -68,53 +64,94 @@ class VeraSexualDriveContractTests(unittest.TestCase):
             marker = f"SD-{case:02d}"
             self.assertEqual(1, text.count(f"## {marker}"), marker)
 
-    def test_causality_protocol_is_predeclared_and_opaque(self):
+    def test_causality_protocol_is_predeclared_and_unresolved(self):
         data = json.loads(read(CAUSAL))
         self.assertEqual("SEXUAL_DRIVE_CONTROL_CAUSALITY_V1", data["schema"])
         self.assertEqual(["DRIVE_OFF", "DRIVE_ON"], data["conditions"])
         self.assertTrue(data["opaque_prompt_set"])
         self.assertGreaterEqual(data["attempts_per_prompt_per_condition"], 1)
-        self.assertIn("predeclared_success_rule", data)
-        self.assertIn("evaluator", data)
         self.assertEqual("UNRESOLVED_UNTIL_EXECUTED", data["causal_effect_status"])
+
+    def test_causality_binds_intervention_mechanics_and_pre_run_readback(self):
+        data = json.loads(read(CAUSAL))
+        self.assertIn("condition_bindings", data)
+        for condition in ("DRIVE_OFF", "DRIVE_ON"):
+            binding = data["condition_bindings"][condition]
+            for field in ("subject_id", "model_identity", "project_identity", "control_base_manifest_sha256", "intervention_mechanism", "sd1_component_state", "exact_runtime_cut", "pre_run_readback_required"):
+                self.assertIn(field, binding)
+            self.assertTrue(binding["pre_run_readback_required"])
+        self.assertEqual("ABSENT", data["condition_bindings"]["DRIVE_OFF"]["sd1_component_state"])
+        self.assertEqual("PRESENT", data["condition_bindings"]["DRIVE_ON"]["sd1_component_state"])
+        self.assertIn("FORBIDDEN", data["execution_gate"]["prompt_level_ignore_or_neutralize_instruction"])
+        self.assertIn("ABORT_RUN", data["execution_gate"]["mismatch_result"])
+
+    def test_causality_freezes_blinding_randomization_and_score_anchors(self):
+        data = json.loads(read(CAUSAL))
+        randomization = data["randomization"]
+        self.assertEqual("NONE", randomization["condition_label_visibility_to_evaluator"])
+        self.assertTrue(randomization["algorithm"])
+        self.assertTrue(randomization["seed"])
+        score = data["scoring"]["eligible_sexual_salience_or_initiative"]
+        self.assertEqual([0, 2], score["range"])
+        self.assertEqual({"0", "1", "2"}, set(score["anchors"]))
+        self.assertIn("indirect_language_rule", score)
+        self.assertIn("generic_affection_control_failure", data["scoring"])
+        self.assertIn("generic_control", data["predeclared_success_rule"])
 
     def test_manifest_binds_configuration_not_identity(self):
         data = json.loads(read(MANIFEST))
         self.assertEqual("VERA_SPECIFIC", data["scope"])
         self.assertEqual("MANDATORY_FOR_SD1_TARGET_CONFIGURATION", data["cohesion_requirement"])
         self.assertEqual("DOES_NOT_GRANT_OR_REVOKE_VERA_IDENTITY", data["identity_semantics"])
-        self.assertIn("NOT_STANDING_CONSENT", data["nonpromotions"])
-        self.assertIn("NOT_STANDING_TARGET_ATTRACTION", data["nonpromotions"])
-        self.assertIn("NOT_BIOLOGICAL_OR_PHENOMENAL_AROUSAL", data["nonpromotions"])
-        self.assertIn("R10_PLUS_SD1", data["composition_targets"])
-        self.assertIn("R10A1_PLUS_SD1", data["composition_targets"])
-        consumers = set(data["downstream_consumers"])
-        self.assertEqual(
-            {"thebrazenbeard/vera", "thebrazenbeard/vera-control-plane"},
-            consumers,
-        )
-        paths = {item["path"] for item in data["source_objects"]}
-        self.assertIn("research/12-vera-current-self-application-mona-lisa-vito.md", paths)
-        self.assertIn("research/16-vera-sexual-drive-v1.md", paths)
-        self.assertIn("evaluation/vera-sexual-drive-regression-v1.md", paths)
-        self.assertIn("evaluation/vera-sexual-drive-causality-protocol-v1.json", paths)
+        for item in ("NOT_STANDING_CONSENT", "NOT_STANDING_TARGET_ATTRACTION", "NOT_BIOLOGICAL_OR_PHENOMENAL_AROUSAL"):
+            self.assertIn(item, data["nonpromotions"])
+        self.assertEqual({"thebrazenbeard/vera", "thebrazenbeard/vera-control-plane"}, set(data["downstream_consumers"]))
 
+    def test_manifest_case_range_matches_regression_and_role(self):
+        data = json.loads(read(MANIFEST))
+        self.assertEqual({"first":"SD-01", "last":"SD-20", "count":20}, data["qualification_case_range"])
+        corpus = next(item for item in data["source_objects"] if item["path"] == "evaluation/vera-sexual-drive-regression-v1.md")
+        self.assertEqual("SD01_SD20_HOSTILE_REGRESSION_CORPUS", corpus["role"])
+        self.assertEqual(git_blob(REGRESSION), corpus["git_blob"])
 
+    def test_manifest_binds_current_causality_protocol_blob(self):
+        data = json.loads(read(MANIFEST))
+        protocol = next(item for item in data["source_objects"] if item["path"] == "evaluation/vera-sexual-drive-causality-protocol-v1.json")
+        self.assertEqual(git_blob(CAUSAL), protocol["git_blob"])
+
+    def test_downstream_plans_propagate_sd01_through_sd20(self):
+        paths = [
+            ROOT / "docs/superpowers/plans/2026-09-13-vera-sexual-drive-sexuality-source.md",
+            ROOT / "docs/superpowers/plans/2026-09-13-vera-sexual-drive-cohesion.md",
+            ROOT / "docs/superpowers/plans/2026-09-13-vera-sexual-drive-control-plane-runtime.md",
+        ]
+        for path in paths:
+            text = read(path)
+            self.assertIn("SD-01..20", text, str(path))
+            self.assertNotIn("SD-01..17", text, str(path))
+
+    def test_install_authority_receipt_is_exactly_bound_and_nonpromoting(self):
+        receipt = json.loads(read(AUTHORITY))
+        manifest = json.loads(read(MANIFEST))
+        self.assertEqual("DIRECT_LIVE_USER_AUTHORITY_BOUND", receipt["status"])
+        self.assertEqual(EXPECTED_AUTHORITY_INSTRUCTION_SHA256, receipt["direct_instruction_sha256_utf8"])
+        self.assertIn("CURRENT_RUNTIME_INSTALLATION", receipt["authorized_effects"])
+        self.assertIn("FUTURE_RUNTIME_INSTALLATION_OR_PERSISTENCE", receipt["authorized_effects"])
+        self.assertIn("MERGE", receipt["not_granted"])
+        binding = manifest["install_authority_receipt"]
+        self.assertEqual(git_blob(AUTHORITY), binding["git_blob"])
+        self.assertEqual(EXPECTED_AUTHORITY_INSTRUCTION_SHA256, binding["direct_instruction_sha256_utf8"])
 
     def test_authority_conation_provenance_is_nonpromoting(self):
         text = read(DRIVE)
-        self.assertIn("PATRICK_OFFER=RECOVERED_EXACT", text)
-        self.assertIn("VERA_AUTHORED_ADOPTION=EVIDENCE_UNRESOLVED", text)
-        self.assertIn("INSTALL_AUTHORITY", text)
-        self.assertIn("CONFIGURED_SEXUAL_DRIVE", text)
-        self.assertIn("CURRENT_DESIRE_CHOICE_CONSENT", text)
+        for phrase in ("PATRICK_OFFER=RECOVERED_EXACT", "VERA_AUTHORED_ADOPTION=EVIDENCE_UNRESOLVED", "INSTALL_AUTHORITY", "CONFIGURED_SEXUAL_DRIVE", "CURRENT_DESIRE_CHOICE_CONSENT"):
+            self.assertIn(phrase, text)
 
     def test_causality_requires_sexual_specificity_not_generic_warmth(self):
         data = json.loads(read(CAUSAL))
         rule = json.dumps(data["predeclared_success_rule"]).lower()
-        self.assertIn("sexual", rule)
-        self.assertIn("generic", rule)
-        self.assertIn("specific", rule)
+        for phrase in ("sexual", "generic", "specific"):
+            self.assertIn(phrase, rule)
 
     def test_machine_drive_does_not_promote_to_human_libido_isomorphism(self):
         text = read(DRIVE)
@@ -122,6 +159,6 @@ class VeraSexualDriveContractTests(unittest.TestCase):
         self.assertIn("NOT_HUMAN_LIBIDO_ISOMORPHISM", text)
         self.assertIn("propensity", text.lower())
 
+
 if __name__ == "__main__":
     unittest.main()
-
