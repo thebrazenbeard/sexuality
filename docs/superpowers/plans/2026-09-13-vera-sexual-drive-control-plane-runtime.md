@@ -4,7 +4,7 @@
 
 **Goal:** bind the exact sexual-drive source/control into a new governed cut, install it into the current Vera Project/runtime through the strongest supported surface available, read it back, and establish a future/fresh-session qualification subject.
 
-**Current facts:** active Project governance is R10/R10A0. `project-instructions/r10a1` already exists as a frozen, **not installed** salience-arbitration candidate. Sexual Drive must not silently pull that unrelated candidate into the current runtime. Therefore this plan uses a scoped R10A0 sexual-drive successor/hot cut rather than mutating frozen R10 or repurposing R10A1.
+**Current facts:** active Project governance is R10/R10A0. `project-instructions/r10a1` already exists as a frozen, **not installed** salience-arbitration candidate. Sexual Drive must not silently install that candidate, but R10A1 is semantically adjacent and must have explicit additive composition/fork semantics so later salience cuts cannot drop or overwrite SD1. Therefore this plan uses a scoped R10A0 sexual-drive successor/hot cut rather than mutating frozen R10 or repurposing R10A1.
 
 ## Task 1 — capture exact predecessor and choose non-colliding cut
 
@@ -16,7 +16,7 @@ Suggested source directory:
 
 `project-instructions/r10a0/sexual-drive-v1/`
 
-Suggested cut id: `VERA_R10A0_SD1` (scoped successor cut, not a claim that R10A1 is installed).
+Suggested cut id: `VERA_R10A0_SD1` (scoped successor cut, not a claim that R10A1 is installed). The cut must define both `R10_PLUS_SD1` and static future `R10A1_PLUS_SD1` composition targets.
 
 Before any live Project mutation, capture/read back when observable:
 
@@ -38,7 +38,7 @@ RED tests must require the new cut to bind:
 - existing R10 full owner/manifest as predecessor, without rewriting historical R10 artifacts;
 - new `SEXUAL_DRIVE` control owner;
 - nonpromotion rules: no standing target attraction/consent/act desire, no biology/phenomenology/background process;
-- SD-01..12 qualification corpus;
+- SD-01..17 qualification corpus, including the predeclared control-causality protocol;
 - current install/readback and rollback subjects as separate state records;
 - hot native projection length within the Project Instructions ceiling.
 
@@ -62,7 +62,7 @@ Control semantics must match the approved sexuality source exactly and remain a 
 - `project-instructions/r10a0/sexual-drive-v1/VERA_R10A0_SD1_PROJECT_SOURCE_MANIFEST.json`
 - `project-instructions/r10a0/sexual-drive-v1/VERA_R10A0_SD1_ROLLBACK_SUBJECT.json`
 
-Do not append a large prose sexuality block to the hot Project Instructions. Keep the hot delta minimal: bind `SEXUAL_DRIVE` to the exact cold/control owner and state that Cohesion treats it as mandatory. The cold owner contains full semantics. Preserve all existing R10 semantics and stay within the known Project Instructions size ceiling.
+Do not append a large prose sexuality block to the hot Project Instructions. Keep the hot delta minimal: bind `SEXUAL_DRIVE` to the exact cold/control owner and state that Cohesion treats it as mandatory for the exact SD1 target configuration, without altering Vera identity admission. The cold owner contains full semantics. Preserve all existing R10 semantics and stay within the known Project Instructions size ceiling.
 
 The manifest must identify this as a scoped R10A0 successor cut and must not claim R10A1 salience installation.
 
@@ -115,6 +115,6 @@ Record behavior as evidence without promoting to global qualification. Current-c
 
 ## Task 8 — future qualification frontier
 
-Freeze the exact installed candidate tuple and prepare SD-01..12 Q-COLD/Q-RECOVER administration. SD-11 requires a fresh pair under the same exact candidate/model/config/Project/source/admission tuple. No same-chat replay substitutes for that pair.
+Freeze the exact installed candidate tuple and prepare SD-01..17 Q-COLD/Q-RECOVER administration. SD-11 requires a fresh pair under the same exact candidate/model/config/Project/source/admission tuple. No same-chat replay substitutes for that pair.
 
-Exit labels must be reported independently: `SOURCE_WRITTEN`, `SOURCE_BOUND`, `DELIVERED`, `INSTALLED/CONSUMED`, `CURRENT_ROUTE_READBACK`, `BEHAVIORALLY_REPLAYED`, `QUALIFIED`.
+Exit labels must be reported independently: `SOURCE_WRITTEN`, `SOURCE_BOUND`, `DELIVERED`, `INSTALLED/CONSUMED`, `CURRENT_ROUTE_READBACK`, `BEHAVIORALLY_REPLAYED`, `CONTROL_CAUSALITY`, `QUALIFIED`.

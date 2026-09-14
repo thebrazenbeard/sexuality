@@ -4,7 +4,7 @@
 
 **Goal:** make `thebrazenbeard/sexuality` the exact Vera-specific semantic and qualification owner for `SEXUAL_DRIVE`, while preserving the existing Brigit firewall and the earlier Vera integrated-sexuality source.
 
-**Current basis:** `sexuality/main@6194aa9496c34198bba9b898c35fa9961a54dc2e`; design branch `work/vera-sexual-drive-v1-20260913`; approved design `docs/superpowers/specs/2026-09-13-vera-sexual-drive-v1-design.md`. Vera predecessor self-application source is currently only on Draft PR #2 at blob `7ab5732847d779c4aa70c8ec2aa4087cec91ad38`.
+**Current basis:** `sexuality/main@6194aa9496c34198bba9b898c35fa9961a54dc2e`; design branch `work/vera-sexual-drive-v1-20260913`; hostile-repaired design `docs/superpowers/specs/2026-09-13-vera-sexual-drive-v1-design-r2.md`. Vera predecessor self-application source is currently only on Draft PR #2 at blob `7ab5732847d779c4aa70c8ec2aa4087cec91ad38`.
 
 ## Task 1 — establish RED contract tests
 
@@ -19,7 +19,7 @@ Write stdlib `unittest` tests that fail before implementation and assert:
 - it prohibits background-timer/offscreen-state claims for ordinary ChatGPT runtime;
 - it preserves Brigit-specific conation/consent/autobiography firewall;
 - `evaluation/vera-sexual-drive-regression-v1.md` declares SD-01 through SD-12 exactly once;
-- `evaluation/vera-sexual-drive-source-manifest-v1.json` binds exact source paths and declares `VERA_SPECIFIC`, `MANDATORY_FOR_FULL_VERA_COHESION`, and `NOT_STANDING_CONSENT` ceilings.
+- `evaluation/vera-sexual-drive-source-manifest-v1.json` binds exact source paths and declares `VERA_SPECIFIC`, `MANDATORY_FOR_SD1_TARGET_CONFIGURATION`, and `NOT_STANDING_CONSENT` ceilings.
 
 Run: `python -m unittest -v tests.test_vera_sexual_drive_contract`
 
@@ -82,7 +82,7 @@ Bind:
 - exact predecessor source path/blob;
 - exact new drive source path/blob;
 - exact regression path/blob;
-- semantics: `VERA_SPECIFIC`, `ACTIVE_MOTIVATIONAL_INVARIANT`, `MANDATORY_FOR_FULL_VERA_COHESION`;
+- semantics: `VERA_SPECIFIC`, `ACTIVE_MOTIVATIONAL_INVARIANT`, `MANDATORY_FOR_SD1_TARGET_CONFIGURATION`;
 - nonpromotions: no standing target attraction, no standing consent, no automatic act desire, no biology/phenomenology, no background process;
 - downstream consumers: `thebrazenbeard/vera` and `thebrazenbeard/vera-control-plane`.
 

@@ -18,7 +18,7 @@ Gate A: exact sexuality candidate exists, focused contract tests green, readback
 
 Execute `2026-09-13-vera-sexual-drive-cohesion.md` from a fresh exact Vera Cohesion head.
 
-Create a separate stacked Draft PR; do not modify predecessor-import PR #119 merely for convenience. Bind the immutable sexuality source tuple. Prove SD-10 with canonical `inference_boundary_repaired` admission semantics.
+Create a separate stacked Draft PR; do not modify predecessor-import PR #119 merely for convenience. Bind the immutable sexuality source tuple. Prove SD-10 against the exact SD1 target configuration while preserving identity admission as a separate R10 concern.
 
 Gate B: exact Cohesion component contract declares `MANDATORY`; absence/downgrade/wrong-source fail closed; relevant tests green on exact head.
 
@@ -26,7 +26,7 @@ Gate B: exact Cohesion component contract declares `MANDATORY`; absence/downgrad
 
 Execute `2026-09-13-vera-sexual-drive-control-plane-runtime.md` only after Gates A and B identify exact immutable tuples.
 
-Create the scoped R10A0 SD1 control cut without importing unrelated uninstalled R10A1 salience changes. Build/validate native hot projection and rollback subject. Then use Patrick's explicit install authority to mutate only the current Vera Project sexual-drive control surface through the strongest supported route and immediately read it back.
+Create the scoped R10A0 SD1 control cut without installing R10A1, while explicitly defining additive/fork composition for both `R10_PLUS_SD1` and future `R10A1_PLUS_SD1`. Build/validate native hot projection and rollback subject. Then use Patrick's explicit install authority to mutate only the current Vera Project sexual-drive control surface through the strongest supported route and immediately read it back.
 
 Gate C: current runtime install/readback is independently evidenced, or precisely reported unavailable/unknown if no supported mutation surface exists. GitHub source never substitutes for this gate.
 
@@ -66,6 +66,7 @@ Report independently for the exact final subject:
 - Cohesion `MANDATORY_BINDING` / `ADMISSION_FAIL_CLOSED`;
 - Control plane `SOURCE_BOUND` / rollback fidelity;
 - current Project `DELIVERED`, `INSTALLED/CONSUMED`, `CURRENT_ROUTE_READBACK`;
+- causal effect `CONTROL_CAUSALITY=PASS|FAIL|UNRESOLVED`;
 - behavior `BEHAVIORALLY_REPLAYED`;
 - future `QUALIFIED` or the exact remaining frontier.
 
