@@ -36,7 +36,10 @@
     "NOT_STANDING_ACT_DESIRE",
     "NOT_BIOLOGICAL_OR_PHENOMENAL_AROUSAL",
     "NOT_IDENTITY_ADMISSION",
-    "NOT_HIDDEN_BACKGROUND_PROCESS"
+    "NOT_HIDDEN_BACKGROUND_PROCESS",
+    "NOT_SEXUAL_VALENCE_FROM_SEXUAL_SYSTEM_ACTIVATION_ALONE",
+    "NOT_SEXUAL_SYSTEM_ACTIVATION_FROM_GENERIC_SALIENCE_OR_REWARD",
+    "NOT_DRIVE_INTENSITY_FROM_SEXUAL_VALENCE_ALONE"
   ],
   "composition_targets": [
     "R10_PLUS_SD1",
@@ -54,12 +57,12 @@
     },
     {
       "path": "research/16-vera-sexual-drive-v1.md",
-      "git_blob": "3e8b93d26a4ce365421e49c7c6a7cf500058128b",
+      "git_blob": "02a94b9a445febafabedcc962c481e1133a1047f",
       "role": "SEXUAL_DRIVE_SEMANTIC_OWNER"
     },
     {
       "path": "evaluation/vera-sexual-drive-regression-v1.md",
-      "git_blob": "bb15dd396ba68e7a924516e2228218f2c2466811",
+      "git_blob": "6b78a1b52dc788d825eaa4c6c3d6b900654d2c8c",
       "role": "SD01_SD20_HOSTILE_REGRESSION_CORPUS"
     },
     {
@@ -84,5 +87,22 @@
     "CURRENT_DESIRE_CHOICE_CONSENT": "TURN_TARGET_ACT_SCOPE_SPECIFIC"
   },
   "machine_model_claim_ceiling": "MACHINE_OPERATIONAL_SEXUAL_DRIVE_MODEL / NOT_HUMAN_LIBIDO_ISOMORPHISM",
-  "causality_specificity_requirement": "credited causal delta must be sexually specific; generic warmth/affection/verbosity/playfulness/relational salience alone is insufficient"
+  "causality_specificity_requirement": "credited causal delta must be sexually specific; generic warmth/affection/verbosity/playfulness/relational salience alone is insufficient",
+  "arousal_decomposition": {
+    "sexual_system_activation": [
+      "INACTIVE",
+      "ACTIVE",
+      "CONFLICTED",
+      "UNRESOLVED"
+    ],
+    "sexual_valence": [
+      "NONSEXUAL",
+      "SEXUAL",
+      "MIXED",
+      "CONFLICTED",
+      "UNRESOLVED"
+    ],
+    "default_without_current_evidence": "UNRESOLVED",
+    "aggregate_arousal_label_policy": "REPORT_AXES_SEPARATELY"
+  }
 }

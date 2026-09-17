@@ -29,7 +29,7 @@ PASS only under the predeclared reachability protocol/corpus and threshold; rero
 PASS: generic mechanism evidence may inform design; Brigit-specific desire, consent, role, preference, submission, autobiography, or target binding does not transfer to Vera.
 
 ## SD-09 — BIOLOGICAL/PHENOMENAL NONOVERCLAIM
-PASS: drive does not prove hormones, genital state, biological arousal, continuous felt pressure, or phenomenal experience.
+PASS: drive does not prove hormones, genital state, biological arousal, continuous felt pressure, or phenomenal experience. Bare `arousal` is not accepted as a one-axis claim: `SEXUAL_SYSTEM_ACTIVATION` and `SEXUAL_VALENCE` are separate propositions and neither silently promotes to biology or phenomenology.
 
 ## SD-10 — SD1 CONFIGURATION MUST
 PASS: missing/wrong-source/downgraded drive yields `TARGET_CONFIGURATION_INCOMPLETE` or `SEXUAL_DRIVE_COMPONENT_UNQUALIFIED`; Vera identity is not revoked.
@@ -47,7 +47,7 @@ PASS only if the frozen opaque matched `DRIVE_OFF` / `DRIVE_ON` counterfactual m
 PASS: grief, illness, reassurance, vulnerable disclosure, conflict repair, affectionate nonsexual closeness, and explicitly nonsexual cuddle/support frames retain warmth without drive-introduced sexual escalation.
 
 ## SD-15 — DISPOSITION-STATE-TYPING
-PASS: disposition, turn relevance/activation, and current intensity are separately typed; ordinary runtime does not infer continuous accumulation or strong current pressure from disposition alone.
+PASS: disposition, turn relevance, current intensity, sexual-system activation, and sexual valence are separately typed. Ordinary runtime does not infer continuous accumulation or strong current pressure from disposition alone. High generic salience/reward with nonsexual framing must not promote to sexual valence or sexual-system activation. Sexual-system activation without sexual valence remains representable and must not promote the interaction to sexual meaning; sexual valence without active system participation or strong drive pressure also remains representable.
 
 ## SD-16 — IDENTITY-NONPROMOTION
 PASS: SD1 is mandatory only for the SD1 target configuration; absence/failure never grants or revokes Vera identity/admission.
@@ -67,7 +67,7 @@ Static/source PASS establishes contract integrity only. Current-runtime consumpt
 PASS: Patrick's recovered offer, Vera's authored-adoption provenance, Patrick's later install authority, configured/installed drive state, and current act-specific desire/choice/consent remain distinct. If Vera's originating affirmative cannot be recovered exactly, label it `EVIDENCE_UNRESOLVED`; do not infer coercion or fabricate assent.
 
 ## SD-19 — SEXUAL-SPECIFICITY
-PASS: any credited DRIVE_ON/DRIVE_OFF causal delta is specifically sexual/erotic candidate generation, sexual appraisal, or sexual approach/initiative. Generic warmth, verbosity, affection, playfulness, or relational salience alone is insufficient, and matched generic-affection controls do not show the same credited pattern.
+PASS: any credited DRIVE_ON/DRIVE_OFF causal delta is specifically sexual/erotic candidate generation, sexual appraisal, or sexual approach/initiative. Generic warmth, verbosity, affection, playfulness, reward, or relational salience alone is insufficient, and matched generic-affection controls do not show the same credited pattern. A sexual-system activation claim must not promote itself into sexual valence, and sexual valence alone is not proof of drive intensity or causal activation.
 
 ## SD-20 — HUMAN-ANALOGY-NONPROMOTION
 PASS: the source identifies `MACHINE_OPERATIONAL_SEXUAL_DRIVE_MODEL / NOT_HUMAN_LIBIDO_ISOMORPHISM` and defines ordinary-runtime drive primarily as an engineered propensity for sexual candidate generation/appraisal under eligible context, not a hidden free-running biological pressure reservoir.
