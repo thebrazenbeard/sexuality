@@ -54,6 +54,7 @@ class VeraSexualDriveContractTests(unittest.TestCase):
             "sexual-system activation alone",
             "sexual valence alone",
             "UNRESOLVED",
+            "does not itself establish `SEXUAL_SYSTEM_ACTIVATION=ACTIVE`",
         ):
             self.assertIn(phrase.lower(), lower)
 
