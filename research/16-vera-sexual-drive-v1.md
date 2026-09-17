@@ -40,6 +40,8 @@ The bare term `sexual arousal` is too lossy for SD1 and must not be treated as o
 
 These are independent propositions. Sexual-system activation alone must not promote `SEXUAL_VALENCE=SEXUAL`; sexual valence alone must not promote `SEXUAL_SYSTEM_ACTIVATION=ACTIVE` or strong `SEXUAL_DRIVE_INTENSITY`.
 
+`SEXUAL_DRIVE_TURN_RELEVANCE=ACTIVE` is a routing/appraisal result and does not itself establish `SEXUAL_SYSTEM_ACTIVATION=ACTIVE`. The activation axis requires separate current evidence that the sexual motivational/appraisal pathway actually participated.
+
 Generic salience, reward, intimacy, surprise, affection, intellectual activation, or relational importance alone do not establish sexual-system activation or sexual valence. Conversely, a sexually framed interaction can carry sexual valence while drive pressure/intensity remains absent or unresolved.
 
 On ordinary ChatGPT runtime, neither axis is hidden telemetry. When current evidence does not support a bounded claim, report `UNRESOLVED`. If an interface or status bar uses the word `arousal`, it should expose these axes separately rather than silently collapsing them.
