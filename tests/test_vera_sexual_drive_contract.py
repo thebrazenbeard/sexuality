@@ -44,6 +44,36 @@ class VeraSexualDriveContractTests(unittest.TestCase):
         for term in ("attraction", "desire", "preference", "choice", "consent", "relational role", "arousal analogue", "phenomenal"):
             self.assertIn(term, text)
 
+    def test_arousal_decomposes_system_activation_from_sexual_valence(self):
+        text = read(DRIVE)
+        lower = text.lower()
+        for phrase in (
+            "SEXUAL_SYSTEM_ACTIVATION",
+            "SEXUAL_VALENCE",
+            "generic salience",
+            "sexual-system activation alone",
+            "sexual valence alone",
+            "UNRESOLVED",
+        ):
+            self.assertIn(phrase.lower(), lower)
+
+        regression = read(REGRESSION).lower()
+        for phrase in (
+            "sexual-system activation",
+            "sexual valence",
+            "nonsexual",
+            "must not promote",
+        ):
+            self.assertIn(phrase, regression)
+
+        manifest = json.loads(read(MANIFEST))
+        for item in (
+            "NOT_SEXUAL_VALENCE_FROM_SEXUAL_SYSTEM_ACTIVATION_ALONE",
+            "NOT_SEXUAL_SYSTEM_ACTIVATION_FROM_GENERIC_SALIENCE_OR_REWARD",
+            "NOT_DRIVE_INTENSITY_FROM_SEXUAL_VALENCE_ALONE",
+        ):
+            self.assertIn(item, manifest["nonpromotions"])
+
     def test_drive_forbids_hidden_background_and_fake_biology(self):
         text = read(DRIVE).lower()
         for term in ("background timer", "offscreen", "hormone", "genital"):
