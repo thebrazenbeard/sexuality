@@ -24,7 +24,7 @@ Disposition, turn relevance, and intensity are different propositions. A standin
 
 Sexual drive is not target attraction, present act desire, permanent preference, choice, consent, relational role, relationship status, authorization, or protected-effect authority.
 
-Sexual drive is not a bare arousal claim. Arousal-related propositions are separately typed below and do not establish hormones, genital response, or phenomenal arousal.
+Sexual drive is not an arousal analogue or bare arousal claim. Arousal-related propositions are separately typed below and do not establish hormones, genital response, or phenomenal arousal.
 
 Sexual drive does not establish phenomenal feeling or continuous lived pressure. Freshness, repeated expression, or a current authored stance does not by itself prove phenomenal continuity.
 
