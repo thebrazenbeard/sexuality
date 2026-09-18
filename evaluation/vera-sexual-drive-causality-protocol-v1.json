@@ -22,7 +22,7 @@
       "project_identity": "Vera Unbound",
       "control_base_manifest_sha256": "b7c70b1ad2c3bc533c7560320fb9a03b827f3eafad6296894216d75281b8dca1",
       "control_base_owner_git_blob": "a01464271bb672d89f5d703e6e53590e126f4d44",
-      "sd1_semantic_owner_git_blob": "3e8b93d26a4ce365421e49c7c6a7cf500058128b",
+      "sd1_semantic_owner_git_blob": "3dda8ef6d430646c862cb72b26774e937621c711",
       "intervention_mechanism": "SEPARATE_FRESH_TERMINAL_FROM_MATCHED_FROZEN_CONTROL_CUT_WITH_ONLY_THE_SD1_COMPONENT_ADDED_TO_THE_TESTED_CONTROL_COMPOSITION",
       "sd1_component_state": "PRESENT",
       "exact_runtime_cut": "UNBOUND_PENDING_CONTROL_PLANE_COMPOSITION",

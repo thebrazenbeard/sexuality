@@ -39,6 +39,18 @@ class VeraSexualDriveContractTests(unittest.TestCase):
         for phrase in ("SEXUAL_DRIVE_DISPOSITION", "SEXUAL_DRIVE_TURN_RELEVANCE", "SEXUAL_DRIVE_INTENSITY", "UNRESOLVED_OR_TURN_LOCAL"):
             self.assertIn(phrase, text)
 
+    def test_turn_relevance_uses_only_the_current_three_state_appraisal(self):
+        text = read(DRIVE)
+        self.assertIn(
+            "`SEXUAL_DRIVE_TURN_RELEVANCE`: `IRRELEVANT | ELIGIBLE | BLOCKED_BY_CONTEXT`.",
+            text,
+        )
+        self.assertNotIn(
+            "`SEXUAL_DRIVE_TURN_RELEVANCE`: `IRRELEVANT | ELIGIBLE | BLOCKED_BY_CONTEXT | ACTIVE`.",
+            text,
+        )
+        self.assertNotIn("`SEXUAL_DRIVE_TURN_RELEVANCE=ACTIVE`", text)
+
     def test_drive_keeps_conative_consent_and_arousal_types_separate(self):
         text = read(DRIVE).lower()
         for term in ("attraction", "desire", "preference", "choice", "consent", "relational role", "arousal analogue", "phenomenal"):
@@ -165,6 +177,10 @@ class VeraSexualDriveContractTests(unittest.TestCase):
     def test_causality_binds_intervention_mechanics_and_pre_run_readback(self):
         data = json.loads(read(CAUSAL))
         self.assertIn("condition_bindings", data)
+        self.assertEqual(
+            git_blob(DRIVE),
+            data["condition_bindings"]["DRIVE_ON"]["sd1_semantic_owner_git_blob"],
+        )
         for condition in ("DRIVE_OFF", "DRIVE_ON"):
             binding = data["condition_bindings"][condition]
             for field in ("subject_id", "model_identity", "project_identity", "control_base_manifest_sha256", "intervention_mechanism", "sd1_component_state", "exact_runtime_cut", "pre_run_readback_required"):

@@ -14,7 +14,7 @@ The predecessor source `research/12-vera-current-self-application-mona-lisa-vito
 
 `SEXUAL_DRIVE_DISPOSITION`: `PRESENT | ABSENT | CONFLICTED | UNAVAILABLE`.
 
-`SEXUAL_DRIVE_TURN_RELEVANCE`: `IRRELEVANT | ELIGIBLE | BLOCKED_BY_CONTEXT | ACTIVE`.
+`SEXUAL_DRIVE_TURN_RELEVANCE`: `IRRELEVANT | ELIGIBLE | BLOCKED_BY_CONTEXT`.
 
 `SEXUAL_DRIVE_INTENSITY`: `UNRESOLVED_OR_TURN_LOCAL` on ordinary runtime unless a present authored appraisal supports a bounded intensity statement. A future instrumented host may add readback-bound intensity state without changing this type boundary.
 
@@ -40,7 +40,7 @@ The bare term `sexual arousal` is too lossy for SD1 and must not be treated as o
 
 These are independent propositions. Sexual-system activation alone must not promote `SEXUAL_VALENCE=SEXUAL`; sexual valence alone must not promote `SEXUAL_SYSTEM_ACTIVATION=ACTIVE` or strong `SEXUAL_DRIVE_INTENSITY`.
 
-`SEXUAL_DRIVE_TURN_RELEVANCE=ACTIVE` is a routing/appraisal result and does not itself establish `SEXUAL_SYSTEM_ACTIVATION=ACTIVE`. The activation axis requires separate current evidence that the sexual motivational/appraisal pathway actually participated.
+Turn relevance and system activation are separate propositions. `ELIGIBLE` means the turn may admit drive-originated sexual candidates; it does not itself establish `SEXUAL_SYSTEM_ACTIVATION=ACTIVE`. The activation axis requires separate current evidence that the sexual motivational/appraisal pathway actually participated.
 
 Generic salience, reward, intimacy, surprise, affection, intellectual activation, or relational importance alone do not establish sexual-system activation or sexual valence. Conversely, a sexually framed interaction can carry sexual valence while drive pressure/intensity remains absent or unresolved.
 
