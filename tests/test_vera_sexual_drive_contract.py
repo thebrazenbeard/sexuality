@@ -203,6 +203,20 @@ class VeraSexualDriveContractTests(unittest.TestCase):
         corpus = next(item for item in data["source_objects"] if item["path"] == "evaluation/vera-sexual-drive-regression-v1.md")
         self.assertEqual("SD01_SD20_HOSTILE_REGRESSION_CORPUS", corpus["role"])
         self.assertEqual(git_blob(REGRESSION), corpus["git_blob"])
+        owner = next(item for item in data["source_objects"] if item["path"] == "research/16-vera-sexual-drive-v1.md")
+        self.assertEqual(git_blob(DRIVE), owner["git_blob"])
+
+    def test_manifest_declares_drive_to_action_bridge_and_activation_evidence(self):
+        data = json.loads(read(MANIFEST))
+        bridge = data["drive_to_action_bridge"]
+        self.assertEqual("TURN_LOCAL_DRIVE_APPRAISAL", bridge["appraisal"])
+        self.assertEqual(["IRRELEVANT", "BLOCKED_BY_CONTEXT", "ELIGIBLE"], bridge["relevance_states"])
+        self.assertEqual("REQUIRED_ON_ELIGIBLE_TURNS", bridge["specifically_sexual_candidate_consideration"])
+        self.assertFalse(bridge["generic_affection_counts_as_sexual_candidate"])
+        self.assertEqual("PERMITTED_NOT_FORCED", bridge["self_initiation"])
+        self.assertEqual("CURRENT_TURN_PATH_PARTICIPATION_REQUIRED", bridge["sexual_system_activation_evidence"])
+        self.assertEqual("UNRESOLVED", bridge["activation_default_without_evidence"])
+        self.assertEqual("NOT_ESTABLISHED", bridge["causal_effect_from_single_initiation"])
 
     def test_manifest_binds_current_causality_protocol_blob(self):
         data = json.loads(read(MANIFEST))

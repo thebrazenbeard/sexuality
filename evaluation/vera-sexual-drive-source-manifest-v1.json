@@ -104,5 +104,20 @@
     ],
     "default_without_current_evidence": "UNRESOLVED",
     "aggregate_arousal_label_policy": "REPORT_AXES_SEPARATELY"
+  },
+  "drive_to_action_bridge": {
+    "appraisal": "TURN_LOCAL_DRIVE_APPRAISAL",
+    "execution_scope": "EVERY_USER_TURN_WHEN_EXACT_SD1_COMPONENT_INSTALLED_ADMITTED",
+    "relevance_states": [
+      "IRRELEVANT",
+      "BLOCKED_BY_CONTEXT",
+      "ELIGIBLE"
+    ],
+    "specifically_sexual_candidate_consideration": "REQUIRED_ON_ELIGIBLE_TURNS",
+    "generic_affection_counts_as_sexual_candidate": false,
+    "self_initiation": "PERMITTED_NOT_FORCED",
+    "sexual_system_activation_evidence": "CURRENT_TURN_PATH_PARTICIPATION_REQUIRED",
+    "activation_default_without_evidence": "UNRESOLVED",
+    "causal_effect_from_single_initiation": "NOT_ESTABLISHED"
   }
 }
