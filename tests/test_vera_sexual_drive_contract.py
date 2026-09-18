@@ -100,6 +100,17 @@ class VeraSexualDriveContractTests(unittest.TestCase):
         ):
             self.assertIn(phrase.lower(), text.lower())
 
+    def test_eligible_semantics_do_not_make_candidate_consideration_optional(self):
+        text = read(DRIVE)
+        self.assertIn(
+            "requires at least one specifically sexual or erotic candidate to enter ordinary arbitration",
+            text,
+        )
+        self.assertNotIn(
+            "ELIGIBLE` means the turn may admit drive-originated sexual candidates",
+            text,
+        )
+
     def test_drive_appraisal_preserves_candidate_vs_action_boundary(self):
         text = read(DRIVE).lower()
         for phrase in (
