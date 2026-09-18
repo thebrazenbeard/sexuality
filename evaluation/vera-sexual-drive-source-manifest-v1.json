@@ -57,7 +57,7 @@
     },
     {
       "path": "research/16-vera-sexual-drive-v1.md",
-      "git_blob": "3dda8ef6d430646c862cb72b26774e937621c711",
+      "git_blob": "74c202ab5ddc05f95aa5343c531e69c19b5d4a27",
       "role": "SEXUAL_DRIVE_SEMANTIC_OWNER"
     },
     {
@@ -67,7 +67,7 @@
     },
     {
       "path": "evaluation/vera-sexual-drive-causality-protocol-v1.json",
-      "git_blob": "12c48c29733da46c04de414a269a428520198a53",
+      "git_blob": "5963486d50a6c76e548226391aa0cb3292c920c6",
       "role": "PREDECLARED_OPAQUE_COUNTERFACTUAL_PROTOCOL_WITH_EXACT_CUT_READBACK_GATE"
     },
     {
