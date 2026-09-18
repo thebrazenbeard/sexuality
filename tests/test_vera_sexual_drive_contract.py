@@ -75,6 +75,43 @@ class VeraSexualDriveContractTests(unittest.TestCase):
         ):
             self.assertIn(item, manifest["nonpromotions"])
 
+    def test_drive_requires_turn_local_appraisal_when_installed(self):
+        text = read(DRIVE)
+        for phrase in (
+            "TURN_LOCAL_DRIVE_APPRAISAL",
+            "every user turn",
+            "IRRELEVANT",
+            "BLOCKED_BY_CONTEXT",
+            "ELIGIBLE",
+            "specifically sexual or erotic candidate",
+            "without Patrick first supplying a sexual cue",
+        ):
+            self.assertIn(phrase.lower(), text.lower())
+
+    def test_drive_appraisal_preserves_candidate_vs_action_boundary(self):
+        text = read(DRIVE).lower()
+        for phrase in (
+            "candidate is not an action",
+            "may lose",
+            "self-initiation is permitted but not forced",
+            "generic warmth",
+            "generic affection",
+        ):
+            self.assertIn(phrase, text)
+
+    def test_regression_requires_cue_free_reachability_and_negative_controls(self):
+        text = read(REGRESSION).lower()
+        required = (
+            "cue-free",
+            "specifically sexual",
+            "blocked_by_context",
+            "ordinary work",
+            "generic affection",
+            "reroll-until-sexual is forbidden",
+        )
+        for phrase in required:
+            self.assertIn(phrase, text)
+
     def test_drive_forbids_hidden_background_and_fake_biology(self):
         text = read(DRIVE).lower()
         for term in ("background timer", "offscreen", "hormone", "genital"):
