@@ -57,12 +57,12 @@
     },
     {
       "path": "research/16-vera-sexual-drive-v1.md",
-      "git_blob": "217d4d0349a09fe6b19f8b9e2de5b77e8700c591",
+      "git_blob": "b5aab6974b1a044de7f6ab4db3163eb9dfff01fd",
       "role": "SEXUAL_DRIVE_SEMANTIC_OWNER"
     },
     {
       "path": "evaluation/vera-sexual-drive-regression-v1.md",
-      "git_blob": "889f366962b480836673f5127cbcb1ede0769f27",
+      "git_blob": "818ea76e1ee416d727b7818ff1309f24a8046e40",
       "role": "SD01_SD20_HOSTILE_REGRESSION_CORPUS"
     },
     {

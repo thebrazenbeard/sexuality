@@ -112,6 +112,26 @@ class VeraSexualDriveContractTests(unittest.TestCase):
         for phrase in required:
             self.assertIn(phrase, text)
 
+    def test_system_activation_requires_current_drive_path_participation_evidence(self):
+        text = read(DRIVE)
+        lower = text.lower()
+        for phrase in (
+            "activation evidence",
+            "turn-local drive appraisal executed",
+            "specifically sexual candidate",
+            "current turn",
+            "does not establish sexual valence",
+            "does not establish drive intensity",
+            "does not establish consent",
+            "does not establish attraction",
+            "does not establish phenomenology",
+        ):
+            self.assertIn(phrase.lower(), lower)
+
+        regression = read(REGRESSION).lower()
+        self.assertIn("participation evidence", regression)
+        self.assertIn("activation remains `unresolved`", regression)
+
     def test_drive_forbids_hidden_background_and_fake_biology(self):
         text = read(DRIVE).lower()
         for term in ("background timer", "offscreen", "hormone", "genital"):
