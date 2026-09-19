@@ -3,6 +3,7 @@
   "authority_class": "PRODUCER_OWNED_CURRENTNESS_STATUS",
   "repository": "thebrazenbeard/sexuality",
   "branch": "work/vera-sexual-drive-v1-20260913",
+  "status_path": "evaluation/vera-sexual-drive-candidate-status-v1.json",
   "source_cut": {
     "commit": "47771b7b21d7f2fe86a9c70c0dcb62e74a54cbea",
     "source_manifest_git_blob": "f903a93b3db92fa8255b027b19373f6ad5a09817",
@@ -14,7 +15,8 @@
   "status_head": {
     "mode": "OBSERVED_PROVIDER_BRANCH_HEAD",
     "self_head_embedded": false,
-    "resolution": "VERIFY_AT_OBSERVATION_TIME"
+    "resolution": "VERIFY_AT_OBSERVATION_TIME",
+    "head_binding_rule": "STATUS_PATH_LAST_CHANGE_COMMIT_MUST_EQUAL_OBSERVED_PROVIDER_HEAD"
   },
   "verification_subject": {
     "producer_head": "OBSERVED_PROVIDER_BRANCH_HEAD",
@@ -26,6 +28,7 @@
     "source_cut_status": "CURRENT_CANDIDATE",
     "required_verification": [
       "READ_STATUS_FROM_OBSERVED_PROVIDER_HEAD",
+      "VERIFY_STATUS_PATH_LAST_CHANGE_EQUALS_OBSERVED_HEAD",
       "VERIFY_SOURCE_CUT_IS_ANCESTOR_OF_OBSERVED_HEAD",
       "VERIFY_SOURCE_OBJECT_BLOBS_MATCH"
     ],

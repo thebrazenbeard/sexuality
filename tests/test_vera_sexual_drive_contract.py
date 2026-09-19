@@ -291,9 +291,30 @@ class VeraSexualDriveContractTests(unittest.TestCase):
         self.assertFalse(head["self_head_embedded"])
         self.assertEqual("VERIFY_AT_OBSERVATION_TIME", head["resolution"])
         self.assertEqual(
+            "STATUS_PATH_LAST_CHANGE_COMMIT_MUST_EQUAL_OBSERVED_PROVIDER_HEAD",
+            head["head_binding_rule"],
+        )
+        status_path = CANDIDATE_STATUS.relative_to(ROOT).as_posix()
+        self.assertEqual(status_path, status["status_path"])
+        observed_head = subprocess.check_output(
+            ["git", "rev-parse", "HEAD"],
+            cwd=ROOT,
+            text=True,
+        ).strip()
+        last_status_change = subprocess.check_output(
+            ["git", "log", "-1", "--format=%H", "--", status_path],
+            cwd=ROOT,
+            text=True,
+        ).strip()
+        self.assertEqual(observed_head, last_status_change)
+        self.assertEqual(
+            git_blob(CANDIDATE_STATUS),
+            commit_blob(observed_head, CANDIDATE_STATUS),
+        )
+        self.assertEqual(
             0,
             subprocess.run(
-                ["git", "merge-base", "--is-ancestor", source_cut["commit"], "HEAD"],
+                ["git", "merge-base", "--is-ancestor", source_cut["commit"], observed_head],
                 cwd=ROOT,
                 check=False,
             ).returncode,
@@ -304,6 +325,7 @@ class VeraSexualDriveContractTests(unittest.TestCase):
         self.assertEqual(
             [
                 "READ_STATUS_FROM_OBSERVED_PROVIDER_HEAD",
+                "VERIFY_STATUS_PATH_LAST_CHANGE_EQUALS_OBSERVED_HEAD",
                 "VERIFY_SOURCE_CUT_IS_ANCESTOR_OF_OBSERVED_HEAD",
                 "VERIFY_SOURCE_OBJECT_BLOBS_MATCH",
             ],
