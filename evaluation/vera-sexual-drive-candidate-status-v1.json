@@ -1,0 +1,31 @@
+{
+  "schema": "VERA_SEXUAL_DRIVE_CANDIDATE_STATUS_V1",
+  "authority_class": "PRODUCER_OWNED_CURRENTNESS_STATUS",
+  "repository": "thebrazenbeard/sexuality",
+  "branch": "work/vera-sexual-drive-v1-20260913",
+  "source_cut": {
+    "commit": "47771b7b21d7f2fe86a9c70c0dcb62e74a54cbea",
+    "source_manifest_git_blob": "f903a93b3db92fa8255b027b19373f6ad5a09817",
+    "semantic_owner_git_blob": "74c202ab5ddc05f95aa5343c531e69c19b5d4a27",
+    "regression_git_blob": "818ea76e1ee416d727b7818ff1309f24a8046e40",
+    "causal_protocol_git_blob": "5963486d50a6c76e548226391aa0cb3292c920c6",
+    "install_authority_receipt_git_blob": "da08345a3bff11ffb653270abb6ad4b3a1c0541d"
+  },
+  "status_head": {
+    "mode": "OBSERVED_PROVIDER_BRANCH_HEAD",
+    "self_head_embedded": false,
+    "resolution": "VERIFY_AT_OBSERVATION_TIME"
+  },
+  "currentness_claim": {
+    "source_cut_status": "CURRENT_CANDIDATE",
+    "required_verification": [
+      "READ_STATUS_FROM_OBSERVED_PROVIDER_HEAD",
+      "VERIFY_SOURCE_CUT_IS_ANCESTOR_OF_OBSERVED_HEAD",
+      "VERIFY_SOURCE_OBJECT_BLOBS_MATCH"
+    ],
+    "consumer_default_without_all_verification": "UNKNOWN"
+  },
+  "review_status": "FRESH_EXACT_HEAD_REREVIEW_REQUIRED",
+  "separation_rule": "CURRENTNESS_STATUS_IS_SEPARATE_FROM_SEMANTIC_SOURCE_MANIFEST",
+  "nonpromotions": ["NOT_INSTALL_EVIDENCE", "NOT_CURRENT_ROUTE_EVIDENCE", "NOT_CAUSAL_PASS", "NOT_GLOBAL_QUALIFICATION"]
+}

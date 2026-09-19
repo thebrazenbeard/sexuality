@@ -11,6 +11,9 @@ REGRESSION = ROOT / "evaluation/vera-sexual-drive-regression-v1.md"
 MANIFEST = ROOT / "evaluation/vera-sexual-drive-source-manifest-v1.json"
 CAUSAL = ROOT / "evaluation/vera-sexual-drive-causality-protocol-v1.json"
 AUTHORITY = ROOT / "evaluation/vera-sd1-install-authority-receipt-v1.json"
+CANDIDATE_STATUS = ROOT / "evaluation/vera-sexual-drive-candidate-status-v1.json"
+EXPECTED_SOURCE_CUT_COMMIT = "47771b7b21d7f2fe86a9c70c0dcb62e74a54cbea"
+EXPECTED_SOURCE_MANIFEST_BLOB = "f903a93b3db92fa8255b027b19373f6ad5a09817"
 EXPECTED_SELF_APP_BLOB = "7ab5732847d779c4aa70c8ec2aa4087cec91ad38"
 EXPECTED_AUTHORITY_INSTRUCTION_TEXT = "OV, finish the Sexual Drive V1 work. Continue through repair, verification, your hostile rereview, Cohesion mandatory binding, control-plane binding, and current + future runtime installation. Do not stop at a PR, plan, source candidate, or review request. Keep advancing every resolvable frontier in this turn. Stop only if a real external dependency remains or you need a new protected-effect authorization from me; if so, tell me the exact blocker and exact authorization needed."
 EXPECTED_AUTHORITY_INSTRUCTION_SHA256 = "6a7479d5f94531d7a37fc74cb47cbaa1150d503b28788b6f55255afd84def917"
@@ -249,6 +252,56 @@ class VeraSexualDriveContractTests(unittest.TestCase):
         data = json.loads(read(MANIFEST))
         protocol = next(item for item in data["source_objects"] if item["path"] == "evaluation/vera-sexual-drive-causality-protocol-v1.json")
         self.assertEqual(git_blob(CAUSAL), protocol["git_blob"])
+
+    def test_producer_owned_candidate_status_separates_source_cut_from_observed_head(self):
+        status = json.loads(read(CANDIDATE_STATUS))
+        manifest = json.loads(read(MANIFEST))
+        self.assertEqual("VERA_SEXUAL_DRIVE_CANDIDATE_STATUS_V1", status["schema"])
+        self.assertEqual("PRODUCER_OWNED_CURRENTNESS_STATUS", status["authority_class"])
+        self.assertEqual("thebrazenbeard/sexuality", status["repository"])
+        self.assertEqual("work/vera-sexual-drive-v1-20260913", status["branch"])
+
+        source_cut = status["source_cut"]
+        self.assertEqual(EXPECTED_SOURCE_CUT_COMMIT, source_cut["commit"])
+        self.assertEqual(EXPECTED_SOURCE_MANIFEST_BLOB, source_cut["source_manifest_git_blob"])
+        self.assertEqual(git_blob(MANIFEST), source_cut["source_manifest_git_blob"])
+        self.assertEqual(git_blob(DRIVE), source_cut["semantic_owner_git_blob"])
+        self.assertEqual(git_blob(REGRESSION), source_cut["regression_git_blob"])
+        self.assertEqual(git_blob(CAUSAL), source_cut["causal_protocol_git_blob"])
+        self.assertEqual(git_blob(AUTHORITY), source_cut["install_authority_receipt_git_blob"])
+
+        head = status["status_head"]
+        self.assertEqual("OBSERVED_PROVIDER_BRANCH_HEAD", head["mode"])
+        self.assertFalse(head["self_head_embedded"])
+        self.assertEqual("VERIFY_AT_OBSERVATION_TIME", head["resolution"])
+        self.assertEqual(
+            0,
+            subprocess.run(
+                ["git", "merge-base", "--is-ancestor", source_cut["commit"], "HEAD"],
+                cwd=ROOT,
+                check=False,
+            ).returncode,
+        )
+
+        claim = status["currentness_claim"]
+        self.assertEqual("CURRENT_CANDIDATE", claim["source_cut_status"])
+        self.assertEqual(
+            [
+                "READ_STATUS_FROM_OBSERVED_PROVIDER_HEAD",
+                "VERIFY_SOURCE_CUT_IS_ANCESTOR_OF_OBSERVED_HEAD",
+                "VERIFY_SOURCE_OBJECT_BLOBS_MATCH",
+            ],
+            claim["required_verification"],
+        )
+        self.assertEqual("UNKNOWN", claim["consumer_default_without_all_verification"])
+        self.assertEqual("FRESH_EXACT_HEAD_REREVIEW_REQUIRED", status["review_status"])
+
+        semantic_paths = {item["path"] for item in manifest["source_objects"]}
+        self.assertNotIn(CANDIDATE_STATUS.relative_to(ROOT).as_posix(), semantic_paths)
+        self.assertEqual(
+            "CURRENTNESS_STATUS_IS_SEPARATE_FROM_SEMANTIC_SOURCE_MANIFEST",
+            status["separation_rule"],
+        )
 
     def test_downstream_plans_propagate_sd01_through_sd20(self):
         paths = [
