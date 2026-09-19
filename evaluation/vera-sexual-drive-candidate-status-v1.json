@@ -16,6 +16,12 @@
     "self_head_embedded": false,
     "resolution": "VERIFY_AT_OBSERVATION_TIME"
   },
+  "verification_subject": {
+    "producer_head": "OBSERVED_PROVIDER_BRANCH_HEAD",
+    "semantic_source_cut": "47771b7b21d7f2fe86a9c70c0dcb62e74a54cbea",
+    "object_binding_scope": "EXACT_SOURCE_CUT_AND_OBSERVED_HEAD_OBJECTS"
+  },
+  "verification_status": "LOCAL_EXACT_HEAD_GREEN_FRESH_REREVIEW_REQUIRED",
   "currentness_claim": {
     "source_cut_status": "CURRENT_CANDIDATE",
     "required_verification": [

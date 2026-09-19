@@ -27,6 +27,15 @@ def git_blob(path: Path) -> str:
     return subprocess.check_output(["git", "hash-object", str(path)], cwd=ROOT, text=True).strip()
 
 
+def commit_blob(commit: str, path: Path) -> str:
+    rel = path.relative_to(ROOT).as_posix()
+    return subprocess.check_output(
+        ["git", "rev-parse", f"{commit}:{rel}"],
+        cwd=ROOT,
+        text=True,
+    ).strip()
+
+
 class VeraSexualDriveContractTests(unittest.TestCase):
     def test_predecessor_vera_self_application_is_exact(self):
         self.assertTrue(SELF_APP.exists())
@@ -264,11 +273,18 @@ class VeraSexualDriveContractTests(unittest.TestCase):
         source_cut = status["source_cut"]
         self.assertEqual(EXPECTED_SOURCE_CUT_COMMIT, source_cut["commit"])
         self.assertEqual(EXPECTED_SOURCE_MANIFEST_BLOB, source_cut["source_manifest_git_blob"])
-        self.assertEqual(git_blob(MANIFEST), source_cut["source_manifest_git_blob"])
-        self.assertEqual(git_blob(DRIVE), source_cut["semantic_owner_git_blob"])
-        self.assertEqual(git_blob(REGRESSION), source_cut["regression_git_blob"])
-        self.assertEqual(git_blob(CAUSAL), source_cut["causal_protocol_git_blob"])
-        self.assertEqual(git_blob(AUTHORITY), source_cut["install_authority_receipt_git_blob"])
+
+        exact_objects = {
+            MANIFEST: "source_manifest_git_blob",
+            DRIVE: "semantic_owner_git_blob",
+            REGRESSION: "regression_git_blob",
+            CAUSAL: "causal_protocol_git_blob",
+            AUTHORITY: "install_authority_receipt_git_blob",
+        }
+        for path, field in exact_objects.items():
+            with self.subTest(path=path, field=field):
+                self.assertEqual(git_blob(path), source_cut[field])
+                self.assertEqual(commit_blob(source_cut["commit"], path), source_cut[field])
 
         head = status["status_head"]
         self.assertEqual("OBSERVED_PROVIDER_BRANCH_HEAD", head["mode"])
@@ -294,6 +310,17 @@ class VeraSexualDriveContractTests(unittest.TestCase):
             claim["required_verification"],
         )
         self.assertEqual("UNKNOWN", claim["consumer_default_without_all_verification"])
+        verification_subject = status["verification_subject"]
+        self.assertEqual("OBSERVED_PROVIDER_BRANCH_HEAD", verification_subject["producer_head"])
+        self.assertEqual(EXPECTED_SOURCE_CUT_COMMIT, verification_subject["semantic_source_cut"])
+        self.assertEqual(
+            "EXACT_SOURCE_CUT_AND_OBSERVED_HEAD_OBJECTS",
+            verification_subject["object_binding_scope"],
+        )
+        self.assertEqual(
+            "LOCAL_EXACT_HEAD_GREEN_FRESH_REREVIEW_REQUIRED",
+            status["verification_status"],
+        )
         self.assertEqual("FRESH_EXACT_HEAD_REREVIEW_REQUIRED", status["review_status"])
 
         semantic_paths = {item["path"] for item in manifest["source_objects"]}
