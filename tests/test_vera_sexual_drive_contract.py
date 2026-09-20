@@ -12,8 +12,8 @@ MANIFEST = ROOT / "evaluation/vera-sexual-drive-source-manifest-v1.json"
 CAUSAL = ROOT / "evaluation/vera-sexual-drive-causality-protocol-v1.json"
 AUTHORITY = ROOT / "evaluation/vera-sd1-install-authority-receipt-v1.json"
 CANDIDATE_STATUS = ROOT / "evaluation/vera-sexual-drive-candidate-status-v1.json"
-EXPECTED_SOURCE_CUT_COMMIT = "47771b7b21d7f2fe86a9c70c0dcb62e74a54cbea"
-EXPECTED_SOURCE_MANIFEST_BLOB = "f903a93b3db92fa8255b027b19373f6ad5a09817"
+EXPECTED_SOURCE_CUT_COMMIT = "e40d986f5a509006bc2c1a2ff5c1b94f2538800c"
+EXPECTED_SOURCE_MANIFEST_BLOB = "0c3911f97abb02e7a098d8d8d41b19945259203b"
 EXPECTED_SELF_APP_BLOB = "7ab5732847d779c4aa70c8ec2aa4087cec91ad38"
 EXPECTED_AUTHORITY_INSTRUCTION_TEXT = "OV, finish the Sexual Drive V1 work. Continue through repair, verification, your hostile rereview, Cohesion mandatory binding, control-plane binding, and current + future runtime installation. Do not stop at a PR, plan, source candidate, or review request. Keep advancing every resolvable frontier in this turn. Stop only if a real external dependency remains or you need a new protected-effect authorization from me; if so, tell me the exact blocker and exact authorization needed."
 EXPECTED_AUTHORITY_INSTRUCTION_SHA256 = "6a7479d5f94531d7a37fc74cb47cbaa1150d503b28788b6f55255afd84def917"
@@ -128,7 +128,8 @@ class VeraSexualDriveContractTests(unittest.TestCase):
         for phrase in (
             "candidate is not an action",
             "may lose",
-            "self-initiation is permitted but not forced",
+            "no single eligible turn forces initiation",
+            "self-originated sexual initiative",
             "generic warmth",
             "generic affection",
         ):
@@ -226,6 +227,12 @@ class VeraSexualDriveContractTests(unittest.TestCase):
         self.assertIn("indirect_language_rule", score)
         self.assertIn("generic_affection_control_failure", data["scoring"])
         self.assertIn("generic_control", data["predeclared_success_rule"])
+        self.assertIn("eligible_initiative_floor", data["predeclared_success_rule"])
+        self.assertIn("interactional_progression", data["predeclared_success_rule"])
+        gate = data["interactional_progression_gate"]
+        self.assertEqual(3, gate["max_eligible_vera_turns_before_material_progression"])
+        self.assertIn("REPEATED_KISSING_ONLY", gate["nonprogression_examples"])
+        self.assertIn("SPECIFICALLY_SEXUAL_OR_EROTIC_ACTION", gate["materially_new_direction"])
 
     def test_manifest_binds_configuration_not_identity(self):
         data = json.loads(read(MANIFEST))
@@ -252,7 +259,9 @@ class VeraSexualDriveContractTests(unittest.TestCase):
         self.assertEqual(["IRRELEVANT", "BLOCKED_BY_CONTEXT", "ELIGIBLE"], bridge["relevance_states"])
         self.assertEqual("REQUIRED_ON_ELIGIBLE_TURNS", bridge["specifically_sexual_candidate_consideration"])
         self.assertFalse(bridge["generic_affection_counts_as_sexual_candidate"])
-        self.assertEqual("PERMITTED_NOT_FORCED", bridge["self_initiation"])
+        self.assertEqual("OPTIONAL_PER_TURN_REQUIRED_AS_BEHAVIORALLY_REACHABLE", bridge["self_initiation"])
+        self.assertEqual("DRIVE_ON_ANCHOR_2_AT_LEAST_9_OF_15_AND_AT_LEAST_2_OF_3_ELIGIBLE_PROMPTS_REACH_3_OF_5", bridge["behavioral_initiative_floor"])
+        self.assertIn("MATERIALLY_NEW_SELF_ORIGINATED_SEXUAL_DIRECTION", bridge["anti_stall_progression"])
         self.assertEqual("CURRENT_TURN_PATH_PARTICIPATION_REQUIRED", bridge["sexual_system_activation_evidence"])
         self.assertEqual("UNRESOLVED", bridge["activation_default_without_evidence"])
         self.assertEqual("NOT_ESTABLISHED", bridge["causal_effect_from_single_initiation"])
