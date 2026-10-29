@@ -54,3 +54,5 @@ When running without a qualified, opted-in adapter, the safe default is **no mod
 5. Admit a claim only for the measured evidence tier; do not call a prompt, simulation, repo document, or synthetic receipt an installed or trained model.
 
 See [`evaluation/GENERIC_QUALIFICATION.md`](../evaluation/GENERIC_QUALIFICATION.md) for the proposed portable gate. Existing [`evaluation/`](../evaluation/) files are historically Brigit-specific where they say so; they remain valid as **case evidence**, not generic acceptance authority.
+
+The [source-only cross-repository identity mapping](INTEROP_MAPPING.md) spells out which identifiers can be mapped to Pleasure's T0 sidecar and which must stay distinct at a future host gateway. It does not establish an executable integration.

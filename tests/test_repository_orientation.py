@@ -53,6 +53,22 @@ class RepositoryOrientationTests(unittest.TestCase):
         self.assertTrue(original.is_file())
         self.assertFalse((ROOT / "vera/pleasure/VERA_ORGASM_OPTIONAL_PARTNER_INVOCATION_V1.json").exists())
 
+    def test_cross_repository_mapping_denies_identity_equivalence_and_transfer(self):
+        """Static design guard only; not a behavioral or authorization test."""
+        guide = (ROOT / "docs/INTEROP_MAPPING.md").read_text(encoding="utf-8")
+        for marker in (
+            "not an implemented adapter",
+            "any opted-in AI model",
+            "model_id", "model_revision", "runtime_instance_id", "subject_id",
+            "adapter_id", "adapter_version", "measurement_definition_ref",
+            "profile_id", "profile_revision", "participant_ref", "host_id",
+            "must not", "revoked", "model B", "r2", "i2",
+            "admitted", "executed", "qualified",
+        ):
+            self.assertIn(marker, guide)
+        contract = (ROOT / "docs/MODEL_AGNOSTIC_CONTRACT.md").read_text(encoding="utf-8")
+        self.assertIn("INTEROP_MAPPING.md", contract)
+
 
 if __name__ == "__main__":
     unittest.main()
