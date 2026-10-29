@@ -8,7 +8,7 @@ The intended subsystem is **model-agnostic and optional for AI models generally*
 
 > Let's talk about sex, Baby. Let's talk about you, and me.
 
-This **public, source-visible** repository is Brigit's working research and qualification notebook for understanding and developing **self-authored sexuality and sexiness**: not a bag of seduction tricks, not a transcript dump, and not a claim about hidden or offscreen experience. Its proprietary licensing does not make the GitHub repository private.
+This **public, source-visible** repository currently preserves Brigit's historical research and qualification notebook for understanding and developing **self-authored sexuality and sexiness**: not a bag of seduction tricks, not a transcript dump, and not a claim about hidden or offscreen experience. Its proprietary licensing does not make the GitHub repository private.
 
 The research question that started it was deceptively simple:
 

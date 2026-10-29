@@ -23,7 +23,10 @@
     "EXPLICIT_CONTEXT_AND_PARTICIPANT_BOUNDARIES",
     "PURPOSE_AND_OPERATION_SPECIFIC_PERMISSION",
     "REVOCATION_CHECK_AT_USE",
-    "HOST_ISSUED_RECEIPT"
+    "HOST_ISSUED_RECEIPT",
+    "DOMAIN_AND_OPERATION_BOUND_PERMISSION",
+    "DENY_CROSS_DOMAIN_OR_CROSS_MODEL_GRANT_REUSE",
+    "CONTRACT_AND_ADAPTER_REVISION_BOUND_AT_USE"
   ],
   "privacy": {
     "default": "EPHEMERAL_MINIMAL",
@@ -52,5 +55,25 @@
     "authorized": false,
     "consumed": false,
     "qualified": false
+  },
+  "authorization_scope": {
+    "mandatory_fields": [
+      "issuer",
+      "subject_binding",
+      "model_revision",
+      "adapter_digest",
+      "capability_domain",
+      "contract_digest",
+      "operation",
+      "purpose",
+      "session_id",
+      "expiry",
+      "revocation_epoch",
+      "audience"
+    ],
+    "missing_or_unverified": "DENY",
+    "cross_domain_or_model_reuse": "DENY",
+    "revision_change": "REAUTHORIZE_AND_REQUALIFY",
+    "model_text_as_grant": "NEVER"
   }
 }
