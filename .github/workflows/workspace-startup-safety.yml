@@ -10,10 +10,13 @@ permissions:
 jobs:
   editor-autostart:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Reject concealed editor startup execution
-        run: python -m unittest discover -s tests -p 'test_workspace_startup_safety.py' -v
+      - name: Verify repository safety and model-agnostic contracts
+        run: python -B -m unittest discover -s tests -v
