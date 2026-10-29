@@ -8,6 +8,11 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class RepositoryOrientationTests(unittest.TestCase):
+    def test_generic_contract_suite_is_present(self):
+        path = ROOT / "tests/test_generic_model_boundary.py"
+        self.assertTrue(path.is_file())
+        self.assertIn("def test_full_source_contract", path.read_text(encoding="utf-8"))
+
     def test_readme_names_current_pleasure_repo_but_keeps_historical_contract(self):
         text = (ROOT / "README.md").read_text(encoding="utf-8")
         self.assertIn("thebrazenbeard/pleasure", text)
