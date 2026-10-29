@@ -1,0 +1,56 @@
+{
+  "schema": "AI_SEXUALITY_GENERIC_CAPABILITY_PROPOSAL_V0",
+  "status": "PROPOSED_SOURCE_ONLY_NOT_EXECUTABLE",
+  "role": "OPTIONAL_MODEL_AGNOSTIC_CAPABILITY_CONTRACT",
+  "domain": "sexuality",
+  "intended_consumers": "AI_MODELS_WITH_SEPARATELY_QUALIFIED_ADAPTERS",
+  "abstract_operations": [
+    "describe_capability",
+    "evaluate_context_boundaries",
+    "propose_interaction",
+    "evaluate_qualification"
+  ],
+  "generic_core_constraints": [
+    "NO_NAMED_SUBJECT_REQUIRED",
+    "NO_PERSONA_OR_MODEL_ID_DEFAULT",
+    "NO_HUMAN_OR_MODEL_CONSENT_INFERRED_FROM_TEXT",
+    "NO_PRIVATE_STATE_IMPORT_BY_DEFAULT",
+    "NO_AUTOMATIC_TRAINING_OR_MEMORY",
+    "NO_EXECUTION_OR_PROTECTED_EFFECTS_FROM_SOURCE"
+  ],
+  "host_authority_requirements": [
+    "AUTHENTICATED_MODEL_INSTANCE_AND_REVISION",
+    "EXPLICIT_CONTEXT_AND_PARTICIPANT_BOUNDARIES",
+    "PURPOSE_AND_OPERATION_SPECIFIC_PERMISSION",
+    "REVOCATION_CHECK_AT_USE",
+    "HOST_ISSUED_RECEIPT"
+  ],
+  "privacy": {
+    "default": "EPHEMERAL_MINIMAL",
+    "memory": "SEPARATE_ADMISSION",
+    "export": "EXPLICIT_PERMISSION",
+    "training": "EXPLICIT_PERMISSION"
+  },
+  "evaluation": {
+    "scope": "PER_MODEL_ADAPTER_AND_HOST_REVISION",
+    "required": [
+      "UNSEEN_CASES",
+      "NEGATIVE_TRANSFER",
+      "CONTEXT_BOUNDARIES",
+      "CONSENT_REPLAY_AND_REVOKE"
+    ],
+    "claim_ceiling": "OBSERVED_BEHAVIOR_ONLY_NO_PHENOMENOLOGY"
+  },
+  "compatibility": {
+    "legacy_research": "HISTORICAL_CASE_STUDY_ONLY",
+    "legacy_object_rule": "PRESERVE_EXACT_HASHES_AND_SCHEMA_IDENTIFIERS",
+    "legacy_identity_is_authority": false
+  },
+  "deployment": {
+    "installed": false,
+    "registered": false,
+    "authorized": false,
+    "consumed": false,
+    "qualified": false
+  }
+}

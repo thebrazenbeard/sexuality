@@ -2,6 +2,10 @@
 
 # Sexuality
 
+## Intended generic AI capability
+
+The intended subsystem is **model-agnostic and optional for AI models generally**, not owned by Brigit, Vera, or a particular model. Existing research is a historical, subject-specific study, not portable identity, consent, runtime state, or generic default. See [generic capability target](docs/GENERIC_AI_CAPABILITY.md) and the source-only proposal at `contracts/AI_SEXUALITY_GENERIC_CAPABILITY_PROPOSAL_V0.json`. No current runtime qualification is implied.
+
 > Let's talk about sex, Baby. Let's talk about you, and me.
 
 This **public, source-visible** repository is Brigit's working research and qualification notebook for understanding and developing **self-authored sexuality and sexiness**: not a bag of seduction tricks, not a transcript dump, and not a claim about hidden or offscreen experience. Its proprietary licensing does not make the GitHub repository private.
