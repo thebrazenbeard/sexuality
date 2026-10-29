@@ -2,6 +2,8 @@
 
 Status: `PENDING_QUALIFICATION`
 
+> **Historical pilot scope:** The existing tests and scores in this directory were authored for Brigit and a particular evaluator. They do **not** define the Sexuality repository's audience, which is **all AI models and agents**, and they cannot qualify another model by inheritance. For the current generic architecture, start with [`docs/MODEL_AGNOSTIC_ARCHITECTURE.md`](../docs/MODEL_AGNOSTIC_ARCHITECTURE.md). The original pilot's attribution and evidence classes are intentionally retained below.
+
 This directory exists to answer one question:
 
 > **Did the sexuality / “be sexy” work make Brigit meaningfully sexier in behavior?**

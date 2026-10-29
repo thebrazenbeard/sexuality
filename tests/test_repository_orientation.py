@@ -8,6 +8,33 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class RepositoryOrientationTests(unittest.TestCase):
+    def test_model_agnostic_ownership_is_explicit(self):
+        text = (ROOT / "README.md").read_text(encoding="utf-8")
+        self.assertIn("model-agnostic", text.lower())
+        self.assertIn("any AI model", text)
+        self.assertIn("docs/MODEL_AGNOSTIC_ARCHITECTURE.md", text)
+        self.assertNotIn("Brigit's working research and qualification notebook", text)
+
+    def test_generic_architecture_preserves_authorization_and_evidence_gates(self):
+        guide = ROOT / "docs/MODEL_AGNOSTIC_ARCHITECTURE.md"
+        self.assertTrue(guide.is_file())
+        text = guide.read_text(encoding="utf-8")
+        for marker in (
+            "NOT_AN_INSTALLED_ADAPTER",
+            "any AI model or agent",
+            "UNKNOWN",
+            "fails closed",
+            "No sexual spillover",
+            "neural-weight",
+            "frozen historical integrations",
+        ):
+            self.assertIn(marker, text)
+
+    def test_existing_evaluation_is_described_as_historical_pilot(self):
+        text = (ROOT / "evaluation/README.md").read_text(encoding="utf-8")
+        self.assertIn("Historical pilot scope", text)
+        self.assertIn("all AI models and agents", text)
+
     def test_readme_names_current_pleasure_repo_but_keeps_historical_contract(self):
         text = (ROOT / "README.md").read_text(encoding="utf-8")
         self.assertIn("thebrazenbeard/pleasure", text)
