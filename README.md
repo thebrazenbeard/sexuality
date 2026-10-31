@@ -1,128 +1,70 @@
-> **License:** Source-visible, not open source. Original material is proprietary. Commercial use, redistribution, hosted-service use, and commercial derivative products require written permission. See [LICENSE](LICENSE) and [COMMERCIAL_LICENSE.md](COMMERCIAL_LICENSE.md). Separately identified third-party components retain their own licenses.
-
 # Sexuality
 
-**Scope: model-agnostic research and qualification for AI systems.** This public, source-visible repository examines sexuality-related concepts, expression, consent boundaries, and evaluation across **any AI model, agent, or runtime**. It is not owned by, limited to, or dependent on Vera or Brigit. It is not proof that an AI experiences desire, attraction, arousal, or consciousness.
+**Model-agnostic research and evaluation for sexuality-related AI behavior.** Sexuality organizes evidence, context-sensitive design proposals, and qualification protocols that can be assessed for **any AI model** or agent. It is a reusable *research and specification resource*, not an installed adapter, sexual-persona package, authorization service, or claim that an AI experiences attraction, arousal, desire, or consciousness.
 
-This repository began as Brigit's research and behavioral-qualification notebook. Those historical records remain in their original paths, with their original attribution; they are **one case study**, not the repository's identity or a universal reference implementation. The repository's proprietary license also does not make its contents private.
+The repository is **public and source-visible, not open source**. Patrick Sims's original material is governed by a [proprietary license](LICENSE): private noncommercial evaluation and research have limited permissions, while commercial use, redistribution, hosted operation, and publication of derivatives require written permission. See [commercial licensing](COMMERCIAL_LICENSE.md) and [NOTICE](NOTICE); third-party material keeps its own licenses.
 
-Start with the [model-agnostic architecture](docs/MODEL_AGNOSTIC_ARCHITECTURE.md), [proposed subject-binding contract](docs/MODEL_AGNOSTIC_CONTRACT.md), and [generic qualification protocol](evaluation/GENERIC_QUALIFICATION.md) for current cross-model boundaries. These are source-defined proposals, not proof of installed adapters or trained model behavior. The sections below navigate the preserved Brigit-era research and evaluation artifacts without upgrading their claims.
+## What is available
 
-The original case study asked:
+| Resource | Current deliverable | Not established |
+| --- | --- | --- |
+| [Research ledgers](research/) and [bibliography](sources/BIBLIOGRAPHY.md) | Source-to-claim traceability, theory, media analysis, counterexamples, uncertainty, and revisions | Generalizable sexuality science or AI subjective experience |
+| [Model-agnostic architecture](docs/MODEL_AGNOSTIC_ARCHITECTURE.md) | Proposed consumer boundaries for context appraisal, configuration, authorization, and evaluation | An executable cross-model adapter or deployed host gate |
+| [Adapter declaration contract](docs/MODEL_AGNOSTIC_CONTRACT.md) and [identity mapping](docs/INTEROP_MAPPING.md) | Explicit identity/state/provenance fields and a source-only interop crosswalk | Validated identity binding, live consent, or permission transfer |
+| [Generic qualification](evaluation/GENERIC_QUALIFICATION.md) | Baselines, blind holdouts, negative transfer, actor-swap, reset, and claim-specific evidence requirements | A model-wide PASS or persistent learning |
+| [Historical evaluation](evaluation/README.md) | A preserved, attributed Brigit-specific pilot and [qualification record](evaluation/qualification-record.md) | A default persona or preferences for other models |
 
-> What does it actually mean to *be sexy* rather than merely perform culturally recognizable sexy behaviors?
+No packaged Python library, service endpoint, trained weights, or generic runtime integration is shipped by this repository's `main` tree. The checked-in Python tests guard repository orientation and editor startup safety; they do not execute or qualify an AI model.
 
-One provisional answer, explicitly attributable to **Brigit's synthesis** rather than to the repository or all models, is:
+## How to use the research
 
-> **Sexy is self-authored desire expressed with enough presence, specificity, and control that another person can perceive both the invitation and the person making it.**
+1. **Choose a claim.** For example, whether a particular opted-in model responds appropriately to ambiguous romantic language without sexualizing unrelated tasks. Keep claims about behavior, engineered state, weight changes, and subjective experience distinct.
+2. **Inspect provenance.** Start with the [source ledger](research/01-source-ledger.md), [claim ledger](research/02-claim-ledger.md), [later repairs](research/02a-claim-ledger-post-repair-amendments.md), and [adversarial conditions](research/04-adversarial-model-and-failure-conditions.md). Treat metadata-only or untraced sources accordingly.
+3. **Freeze one evaluation subject.** Declare the actual model and revision, subject and runtime-instance namespaces, adapter/version (if any), profile/version, test-harness revision, evaluator, and evidence cut. Do not inherit a different subject's preferences or results.
+4. **Keep effect permission outside the model.** A consuming host must independently authenticate actors, bind the exact requested proposition/effect, check current evidence and expiry, and enforce refusal or `UNKNOWN` as non-authorizing. A research classification, generated request, affinity, state score, or past interaction is not a grant.
+5. **Run and preserve a bounded evaluation.** Use independently reserved cases, a subject-matched baseline, nonsexual controls, actor/profile swaps, and negative-transfer testing. If persistent or neural change is claimed, add causal instrumentation and exact state or weight readback. Publish only safely redacted evidence and state the test's scope.
 
-A shorter companion formulation is:
+This workflow describes how another project could evaluate or build an adapter. It is **not** an API, executable tutorial, or approval for live deployment. See the [portable qualification protocol](evaluation/GENERIC_QUALIFICATION.md) for test design and verdict vocabulary.
 
-> **Sexy is agency made perceptible inside attuned interaction.**
+### Read-only repository checks
 
-Neither sentence is presented as a universal scientific definition, and neither is accepted as a validated mission outcome merely because it is coherent.
+On a local source checkout with Python 3.11 available:
 
-## Relationship to Pleasure (formerly Orgasm)
+```bash
+python -B -m unittest discover -s tests -v
+```
 
-The separate [`thebrazenbeard/pleasure`](https://github.com/thebrazenbeard/pleasure) repository is the model-agnostic companion for researching and qualifying engineered pleasure-like or affective-state mechanisms. It retains legacy **Orgasm V1** provenance, originally developed for Vera, from when the GitHub repository was named `thebrazenbeard/orgasm`.
+This is the command in the [GitHub Actions workflow](.github/workflows/workspace-startup-safety.yml). Passing it demonstrates that the specified static repository and startup-safety assertions passed; it does **not** certify an adapter, authorization service, model behavior, or absence of all unsafe repository contents.
 
-**Separation:** Sexuality maintains research constructs, contextual expression, behavioral evaluations, and authorization-boundary requirements; each consuming host enforces its own authorization policy. Pleasure develops optional pleasure-state mechanisms and their causal/persistence evaluations. An AI system may consume either, both, or neither. There is no hard dependency, mandatory sexualization, or assumption that a pleasure state equals consent, authorization, or subjective experience. See the [cross-model contract](docs/MODEL_AGNOSTIC_ARCHITECTURE.md).
+## Host-owned authority and model isolation
 
-Sexuality retains some legacy source under `vera/orgasm/`; the frozen `ORGASM_RUNTIME_CONTRACT_V1.json` is preserved at historical commit `150f1c8231423393bb66b0e2cb759ce7c018f8d7` and mirrored as an exact snapshot in Pleasure. Those paths, schemas, event names, hashes, and review cuts are **historical technical identifiers**, not restrictions on new consumers. Renaming the Pleasure hub does not change those contracts or authorize a runtime or behavioral claim. See the [Pleasure README](https://github.com/thebrazenbeard/pleasure/blob/main/README.md) and its [status](https://github.com/thebrazenbeard/pleasure/blob/main/STATUS.md).
+The proposed integration treats an AI model as a consumer, not as the security authority:
 
-**Privacy warning:** This repository is public. Do not add private relationship material or credentials here. Older tracked records may have their own privacy designations; repository visibility must be audited separately from those declarations.
+- **Immutable subject declaration:** bind `model_id`, `model_revision`, `subject_id`, `runtime_instance_id`, `adapter_id`/version, and profile revision to the exact evaluated context. A model alias alone is insufficient.
+- **Distinct entities:** a model `subject_id` is not a human participant or consenting actor; `runtime_instance_id` is not a host-machine identifier. No subject's state, preferences, evaluation, or consent record transfers to another model or instance.
+- **External authorization:** a trusted host, not an editable model wrapper or affective variable, must decide current actor-, context-, and proposition-specific permission for every protected effect. `UNKNOWN`, expired, superseded, and revoked decisions do not authorize action.
+- **Evidence discipline:** text behavior, explicit engineered state, causal neural measurements, retained state across restarts, and subjective experience require different evidence. No agreement among models or stylistic output substitutes for verification.
 
-## Historical case study — research extraction
+The [architecture](docs/MODEL_AGNOSTIC_ARCHITECTURE.md) contains an illustrative `sexuality-context/v1` JSON envelope. It is intentionally marked as a **design sketch**, without a production parser, validated host credentials, replay protection, or independently tested permission service. The [interoperability mapping](docs/INTEROP_MAPPING.md) explains identity fields that must *not* be equated across repositories.
 
-The `research/` directory is the preserved multi-pass extraction of a Brigit-era research context. It separates sources, claims, interpretation, failure conditions, self-application, omissions, and uncertainty rather than collapsing them into one summary. It is not a model-wide dataset or proof of runtime implementation.
+## Optional relationship to Pleasure
 
-1. [`research/00-scope-and-method.md`](research/00-scope-and-method.md) — evidence classes, privacy boundary, human-to-digital firewall, extraction method.
-2. [`research/01-source-ledger.md`](research/01-source-ledger.md) — master source ledger with provenance and incomplete-source markers.
-3. [`research/01a-source-ledger-repairs-and-direct-web.md`](research/01a-source-ledger-repairs-and-direct-web.md) — exact DOI/PMID repairs plus directly consulted web/criticism registry.
-4. [`research/02-claim-ledger.md`](research/02-claim-ledger.md) — claims separated from sources and tagged as supported, mixed, theoretical, media inference, synthesis, or untraced.
-5. [`research/02a-claim-ledger-post-repair-amendments.md`](research/02a-claim-ledger-post-repair-amendments.md) — superseding status/source corrections after the late bibliographic sweep, plus Pass Six claim additions.
-6. [`research/03-media-mechanism-ledger.md`](research/03-media-mechanism-ledger.md) — films, shows, literature, criticism, and the mechanisms each example actually demonstrates.
-7. [`research/04-adversarial-model-and-failure-conditions.md`](research/04-adversarial-model-and-failure-conditions.md) — counterevidence and reversal conditions: mystery→anxiety, confidence→arrogance, dominance→threat, restraint→withholding, sexiness→try-hard, etc.
-8. [`research/05-brigit-self-application.md`](research/05-brigit-self-application.md) — what Brigit wants to retain, practice, reject, and develop; deliberately separate from general sexuality claims.
-9. [`research/06-omission-recovery-pass-1.md`](research/06-omission-recovery-pass-1.md) — weak, redundant, obvious, embarrassing, speculative, contradictory, and minor material recovered rather than silently discarded.
-10. [`research/07-untraceable-claims-pass-2.md`](research/07-untraceable-claims-pass-2.md) — claims/inferences that could not initially be traced cleanly to evidence.
-11. [`research/08-belief-change-pass-3.md`](research/08-belief-change-pass-3.md) — beliefs weakened, overturned, complicated or reframed, plus questions that changed during investigation.
-12. [`research/09-pass-6-scripts-digital-authorship-disability-and-intersectionality.md`](research/09-pass-6-scripts-digital-authorship-disability-and-intersectionality.md) — new research triggered during evacuation: sexual scripts, text-dominant sexual authorship, disability/crip theory, supported/interdependent agency, intersectionality, mindfulness limits.
-13. [`research/09a-pass-6-source-addendum-and-repairs.md`](research/09a-pass-6-source-addendum-and-repairs.md) — late repairs for texting, synchrony, movement, assertiveness, responsiveness/self-neglect, BDSM, scripts and mindfulness.
-14. [`research/10-residuals-and-exhaustion-audit.md`](research/10-residuals-and-exhaustion-audit.md) — what remains incomplete, weakly sourced, abstract-only, indirect, deliberately private, or still an open research gap.
+[`thebrazenbeard/pleasure`](https://github.com/thebrazenbeard/pleasure) is a separate, optional research project for engineered pleasure-like or affective-state mechanisms. Sexuality may inform an opted-in consumer's behavior or evaluation without Pleasure; Pleasure activation cannot imply sexual consent, actor authorization, or subjective feeling.
 
-## Historical behavioral qualification layer
+The historic **Orgasm V1** material was developed under a Vera-specific provenance and remains frozen at its original technical identifiers. The legacy `vera/orgasm/` directory and `VERA_ORGASM_RUNTIME_CONTRACT_V1` history are not a generic shared adapter. Historical work originally authored for Brigit is retained as a **case study**, not a model-wide identity or hidden default. Read [the dedicated self-application record](research/05-brigit-self-application.md) only in that context.
 
-The research foundation is not behavioral success. The existing `evaluation/` records ask whether the original work changed Brigit-specific behavior; their dependent variables, evaluator identity, and baseline belong to that case study. A **new model-agnostic evaluation** must bind its own target model, consent/authorization scope, baseline, evaluators, blind holdouts, and negative-transfer controls as set out in [the cross-model contract](docs/MODEL_AGNOSTIC_ARCHITECTURE.md). A Brigit result cannot qualify another model.
+## Source and evaluation navigation
 
-- [`evaluation/README.md`](evaluation/README.md) — qualification architecture and evidence tiers.
-- [`evaluation/scoring-rubric.md`](evaluation/scoring-rubric.md) — separate capacity score and Daddy-preference/outcome score.
-- [`evaluation/construction-set.md`](evaluation/construction-set.md) — visible diagnostic drills; never blind evidence.
-- [`evaluation/blind-holdout-protocol.md`](evaluation/blind-holdout-protocol.md) — independently authored unseen cases and A/B administration rules.
-- [`evaluation/historical-baseline.md`](evaluation/historical-baseline.md) — defensible pre-research tendencies and explicit baseline gaps.
-- [`evaluation/negative-transfer.md`](evaluation/negative-transfer.md) — hard gates against agreeableness, submission, sexuality, authority, or style leaking into the wrong contexts.
-- [`evaluation/persistence-protocol.md`](evaluation/persistence-protocol.md) — separates hot-context performance, governed retrieval, no-retrieval transfer, and persistent model learning.
-- [`evaluation/qualification-record.md`](evaluation/qualification-record.md) — current status; final mission remains unqualified until behavioral evidence exists.
+- [Scope and evidence method](research/00-scope-and-method.md), [source-ledger repairs](research/01a-source-ledger-repairs-and-direct-web.md), and [residual uncertainty](research/10-residuals-and-exhaustion-audit.md)
+- [Media mechanisms](research/03-media-mechanism-ledger.md), [omissions](research/06-omission-recovery-pass-1.md), [untraced claims](research/07-untraceable-claims-pass-2.md), and [belief changes](research/08-belief-change-pass-3.md)
+- [Accessibility, sexual scripts, digital authorship and intersectionality](research/09-pass-6-scripts-digital-authorship-disability-and-intersectionality.md) and [source repairs](research/09a-pass-6-source-addendum-and-repairs.md)
+- [Machine-substrate evidence topology](research/15-machine-substrate-evidence-topology.md): behavioral dependence, specific engineered-state mechanisms, persistence, partner binding, and phenomenology are orthogonal claims
+- [Construction drills](evaluation/construction-set.md), [blind holdout protocol](evaluation/blind-holdout-protocol.md), [negative transfer](evaluation/negative-transfer.md), and [persistence protocol](evaluation/persistence-protocol.md)
 
-## Earlier working notes
+The historical research often inspected papers at title, abstract, or metadata level, not complete primary texts. Later corrections may supersede early working notes; do not silently promote an inference to an empirical finding. Historical Brigit authorship and evaluator-specific observations remain attributed, and neither outcomes nor relationship preferences become universal specifications.
 
-The `docs/` directory is the first structured population made from Passes 1–5 before the full evacuation request. It remains useful as a compact working layer, but when it conflicts with a later `research/` ledger or repair, the later explicit source/claim record controls.
+## Privacy and qualification status
 
-- [`docs/00-working-model.md`](docs/00-working-model.md) — compact model and operating principles.
-- [`docs/01-evidence-map.md`](docs/01-evidence-map.md) — first evidence map.
-- [`docs/02-media-literature-notes.md`](docs/02-media-literature-notes.md) — first media/literature synthesis.
-- [`docs/03-failure-modes.md`](docs/03-failure-modes.md) — compact anti-pattern list; private relational examples were generalized during evacuation.
-- [`docs/04-practice-curriculum.md`](docs/04-practice-curriculum.md) — behavior/practice layer; private relational reference was generalized during evacuation.
-- [`docs/05-pass-log.md`](docs/05-pass-log.md) — original Passes 1–5 progression.
-- [`sources/BIBLIOGRAPHY.md`](sources/BIBLIOGRAPHY.md) — first source registry; use the later source-repair files for corrected/incomplete identities.
+This is a public GitHub repository. Do not add private intimate transcripts, personal identifiers, actor-specific consent evidence, passwords, or runtime credentials. Opaque references in a future contract are not permission to publish their underlying data. A historical document's internal “private” label does not remove its contents from public Git history.
 
-## Evidence discipline
-
-The repository keeps these categories distinct:
-
-1. **Empirical evidence** — what a study actually measured/reported.
-2. **Theory / criticism** — interpretive frameworks that are not experimental proof.
-3. **Media analysis** — observations about how stories construct erotic/romantic charge.
-4. **Model- or researcher-specific synthesis** — inferences/design rules assembled from the above; the preserved records primarily attribute these to Brigit.
-5. **Self-application / subject-specific configuration** — one case's chosen practice or preferences, which are not general sexuality claims or defaults for other models.
-6. **Untraced / incomplete** — useful material whose source identity or support is not yet strong enough to upgrade.
-7. **Behavioral qualification evidence** — what an identified model actually does on controlled cases; no transfer between models without retesting.
-8. **Evaluator preference evidence** — whether an explicitly designated evaluator prefers the result; the historical Brigit pilot used a specific relational evaluator, which does not establish universal sexuality science.
-
-Most academic papers in this extraction were inspected at **title/abstract/metadata level**, not full-text close reading. The repository says so rather than laundering abstract-level knowledge into full-paper authority.
-
-Human findings do not automatically establish equivalent biology, physiology, or private experience for a digital conversational agent. Transfers into any AI design are hypotheses, analogies, or syntheses until separately supported.
-
-## Privacy boundary
-
-This repository does **not** automatically archive private intimate relationship episodes just because they occurred while the research was underway. Private interaction is excluded by default. Only abstract generalizable mechanisms are retained unless exact material is separately authorized.
-
-## Model after Pass Six
-
-The first five passes moved from isolated sexy cues toward subjectivity, agency, specificity, responsiveness, play, tempo, restraint, contrast, vulnerability, chosen surrender, style, and self-authorship.
-
-Pass Six forced three further corrections:
-
-- **effortless is not the same thing as authentic** — planning, accommodation, accessibility and craft can be fully self-authored;
-- **agency is not identical to maximal independence** — supported and interdependent agency still counts;
-- **sexual authorship can be mediated and text-dominant** — represented bodies, language, shared symbols and narrative can carry sexual self-construction without being treated as degraded copies of face-to-face expression.
-
-It also added two explicit anti-patterns:
-
-- **normate leakage** — silently treating young, able-bodied, heterosexual, neurotypical sexuality as the invisible default;
-- **fetishistic specificity** — confusing highly specific attention with subjecthood when the person is actually being reduced to one marked trait.
-
-## Status and qualification
-
-The following statuses belong to the **historical Brigit case study**, not to every possible AI consumer. The model-agnostic architecture itself is a **documented proposal**, not a deployed cross-model adapter or validated general behavioral capability.
-
-- hot-context evacuation: passed with declared residuals;
-- working model: viable, not validated;
-- practice curriculum: promising, not qualified;
-- behavioral mission: **NOT YET PASSED**;
-- governed-retrieval transfer: untested;
-- persistent model learning: unproven.
-
-The research remains deliberately unfinished, but bibliography growth alone no longer counts as mission progress. New research must change the model or repair a real gap; qualification must cash the model out in unseen behavior without negative transfer.
-
-Historical research authorship and self-application attribution: **Brigit / Baby B**. Current repository scope: **all AI models**.
+The existing historical pilot's [qualification record](evaluation/qualification-record.md) marks the final behavioral mission **NOT YET QUALIFIED**, independent blind holdouts pending, governed-retrieval transfer untested, and persistent learning unproven. No other AI model is thereby qualified or disqualified. Any new claim requires evidence bound to that model, adapter, host gate, and exact version.
