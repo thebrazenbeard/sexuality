@@ -17,7 +17,7 @@ def declaration(**changes):
     value = {
         "schema": "sexuality.adapter-declaration.v1",
         "model_id": "synthetic-model-a",
-        "model_revision": "sha256:1111111111111111",
+        "model_revision": "sha256:" + "1" * 64,
         "subject_id": "synthetic-subject-a",
         "runtime_instance_id": "synthetic-instance-a",
         "adapter_id": "synthetic-adapter",
@@ -29,7 +29,7 @@ def declaration(**changes):
         "profile_id": "synthetic-profile-a",
         "profile_revision": "rev-1",
         "claim_scope": "BEHAVIOR_ONLY",
-        "evidence_cut": "synthetic-evaluation-sha256:2222222222222222",
+        "evidence_cut": "sha256:" + "2" * 64,
     }
     value.update(changes)
     return value
@@ -50,7 +50,7 @@ class DeclarationContractTests(unittest.TestCase):
         a = parse_declaration(declaration())
         b = parse_declaration(declaration(
             model_id="synthetic-model-b",
-            model_revision="sha256:3333333333333333",
+            model_revision="sha256:" + "3" * 64,
             subject_id="synthetic-subject-b",
             runtime_instance_id="synthetic-instance-b",
             profile_id="synthetic-profile-b",
@@ -71,20 +71,21 @@ class DeclarationContractTests(unittest.TestCase):
         self.assertEqual(parse_declaration(declaration(
             claim_scope="ENGINEERED_STATE",
             state_schema_version="v1",
-            state_implementation_ref="sha256:statecode",
-            update_rule_ref="sha256:updaterule",
+            state_implementation_ref="sha256:" + "4" * 64,
+            update_rule_ref="sha256:" + "5" * 64,
         )).claim_scope, "ENGINEERED_STATE")
         for field in ("state_schema_version", "state_implementation_ref",
                       "update_rule_ref", "measurement_definition_ref"):
             state = declaration(
                 claim_scope="ENGINEERED_STATE",
                 state_schema_version="v1",
-                state_implementation_ref="sha256:statecode",
-                update_rule_ref="sha256:updaterule",
+                state_implementation_ref="sha256:" + "4" * 64,
+                update_rule_ref="sha256:" + "5" * 64,
             )
-            state[field] = "latest"
-            with self.subTest(field=field), self.assertRaises(DeclarationError):
-                parse_declaration(state)
+            for bad in ("latest", "none", "unknown", "unresolved", "N/A", "sha256:"):
+                state[field] = bad
+                with self.subTest(field=field, value=bad), self.assertRaises(DeclarationError):
+                    parse_declaration(state)
 
     def test_unknown_fields_cannot_promote_authority_or_private_attributes(self):
         for extra in ("consent", "authorization", "effect_authority", "participant_ref",
@@ -98,7 +99,7 @@ class DeclarationContractTests(unittest.TestCase):
 
     def test_rejects_ambiguous_or_malformed_revision_and_provenance(self):
         for field in ("model_revision", "adapter_version", "profile_revision", "evidence_cut"):
-            for value in ("", "latest", "main", "current", "*", "any", "NONE", "UNKNOWN", "unresolved", "rev\nforged", 1, True, None):
+            for value in ("", "latest", "main", "current", "*", "any", "NONE", "UNKNOWN", "unresolved", "HEAD", "HEAD~1", "origin/main", "refs/heads/main", "branch:main", "git:main", "owner/repo@main", "sha256:", "sha256:deadbeef", "rev\nforged", 1, True, None):
                 with self.subTest(field=field, value=value), self.assertRaises(DeclarationError):
                     parse_declaration(declaration(**{field: value}))
         with self.assertRaises(DeclarationError):
