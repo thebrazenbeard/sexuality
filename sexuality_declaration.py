@@ -8,6 +8,7 @@ authorize any effect. A real host owns those checks separately.
 from __future__ import annotations
 
 import json
+import re
 from dataclasses import dataclass, fields
 
 
@@ -24,8 +25,12 @@ _REVISION_FIELDS = frozenset({
     "state_schema_version", "state_implementation_ref", "update_rule_ref",
     "measurement_definition_ref",
 })
-_MUTABLE_ALIASES = frozenset({"latest", "main", "current", "any", "*"})
+_MUTABLE_ALIASES = frozenset({"latest", "main", "master", "head", "trunk", "current", "any", "*"})
 _ABSENT_ALIASES = frozenset({"none", "unknown", "unresolved", "not_applicable", "n/a"})
+_MOVING_PREFIXES = ("refs/", "branch:", "tag:", "head:", "head~", "head^", "origin/", "remote:")
+_SHA256_REF = re.compile(r"sha256:[0-9a-f]{64}\Z")
+_GIT_REF = re.compile(r"git:[0-9a-f]{40}\Z")
+_MOVING_SUFFIX = re.compile(r"(?:@|/)(?:head|main|master|latest)\Z")
 _REQUIRED_REVISION_FIELDS = frozenset({
     "model_revision", "adapter_version", "profile_revision", "evidence_cut",
 })
@@ -40,8 +45,15 @@ def _strict_identifier(value: object, name: str) -> str:
         raise DeclarationError(f"{name} must be a bounded plain-text identifier")
     if any(not 33 <= ord(ch) <= 126 for ch in value):
         raise DeclarationError(f"{name} contains whitespace, controls, or non-ASCII text")
-    if name in _REVISION_FIELDS and value.lower() in _MUTABLE_ALIASES:
-        raise DeclarationError(f"{name} cannot use a mutable alias")
+    if name in _REVISION_FIELDS:
+        lowered = value.lower()
+        if (lowered in _MUTABLE_ALIASES or lowered.startswith(_MOVING_PREFIXES)
+                or _MOVING_SUFFIX.search(lowered)):
+            raise DeclarationError(f"{name} cannot use a mutable revision reference")
+        if lowered.startswith("sha256:") and not _SHA256_REF.fullmatch(lowered):
+            raise DeclarationError(f"{name} has a malformed SHA-256 reference")
+        if lowered.startswith("git:") and not _GIT_REF.fullmatch(lowered):
+            raise DeclarationError(f"{name} has a malformed Git commit reference")
     if name in _REQUIRED_REVISION_FIELDS and value.lower() in _ABSENT_ALIASES:
         raise DeclarationError(f"{name} requires an actual revision or evidence cut")
     return value
@@ -78,7 +90,11 @@ class AdapterDeclaration:
         if self.claim_scope == "BEHAVIOR_ONLY":
             if state != ("NONE", "NONE", "NONE"):
                 raise DeclarationError("behavior-only declaration cannot assert engineered state")
-        elif "NONE" in state or self.measurement_definition_ref == "NONE":
+            if (self.measurement_definition_ref.lower() in _ABSENT_ALIASES
+                    and self.measurement_definition_ref != "NONE"):
+                raise DeclarationError("ambiguous behavior-only measurement reference")
+        elif any(getattr(self, name).lower() in _ABSENT_ALIASES
+                 for name in (*_STATE_FIELDS, "measurement_definition_ref")):
             raise DeclarationError("engineered state requires specific source and measurement refs")
 
     @property
