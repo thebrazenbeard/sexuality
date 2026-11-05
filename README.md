@@ -10,11 +10,11 @@ The repository is **public and source-visible, not open source**. Patrick Sims's
 | --- | --- | --- |
 | [Research ledgers](research/) and [bibliography](sources/BIBLIOGRAPHY.md) | Source-to-claim traceability, theory, media analysis, counterexamples, uncertainty, and revisions | Generalizable sexuality science or AI subjective experience |
 | [Model-agnostic architecture](docs/MODEL_AGNOSTIC_ARCHITECTURE.md) | Proposed consumer boundaries for context appraisal, configuration, authorization, and evaluation | An executable cross-model adapter or deployed host gate |
-| [Adapter declaration contract](docs/MODEL_AGNOSTIC_CONTRACT.md) and [identity mapping](docs/INTEROP_MAPPING.md) | Explicit identity/state/provenance fields and a source-only interop crosswalk | Validated identity binding, live consent, or permission transfer |
+| [Adapter declaration contract](docs/MODEL_AGNOSTIC_CONTRACT.md) and [identity mapping](docs/INTEROP_MAPPING.md) | Source-only strict declaration parser, exact caller-data identity comparison, and an interop crosswalk | Authenticated live identity, a host adapter, consent, or permission transfer |
 | [Generic qualification](evaluation/GENERIC_QUALIFICATION.md) | Baselines, blind holdouts, negative transfer, actor-swap, reset, and claim-specific evidence requirements | A model-wide PASS or persistent learning |
 | [Historical evaluation](evaluation/README.md) | A preserved, attributed Brigit-specific pilot and [qualification record](evaluation/qualification-record.md) | A default persona or preferences for other models |
 
-No packaged Python library, service endpoint, trained weights, or generic runtime integration is shipped by this repository's `main` tree. The checked-in Python tests guard repository orientation and editor startup safety; they do not execute or qualify an AI model.
+No packaged Python library, service endpoint, trained weights, or generic runtime integration is shipped by this source tree. A standard-library declaration validator in `sexuality_declaration.py` checks only self-asserted identity/provenance data; it does not execute or qualify an AI model. The checked-in tests use synthetic declarations and guard editor startup safety.
 
 ## How to use the research
 

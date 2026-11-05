@@ -1,6 +1,6 @@
 # Model-agnostic sexuality research and adapter contract
 
-**Status:** architecture proposal; no generic adapter or model training is implemented by this document.
+**Status:** architecture proposal with a source-only declaration validator; no generic model/host adapter, identity authentication, permission service, or model training is implemented.
 
 ## Scope and ownership
 
@@ -18,12 +18,13 @@ The two repositories have separate responsibilities:
 
 `sexuality` must not require `pleasure` for research or behavioral evaluation. A runtime that elects to implement a pleasure analogue may reference a versioned `sexuality` qualification profile; this is a one-way **optional integration**, not a circular dependency.
 
-## Proposed adapter declaration (not yet an executable schema)
+## Adapter declaration (source-only executable validation)
 
 An implementation claiming compatibility should declare these fields before evaluation:
 
 | Field | Meaning |
 | --- | --- |
+| `schema` | Fixed `sexuality.adapter-declaration.v1`; unsupported schema versions fail closed |
 | `model_id`, `model_revision` | Exact inference model and weight/version identity; an alias alone is insufficient |
 | `subject_id`, `runtime_instance_id` | The particular opted-in subject and running state namespace |
 | `adapter_id`, `adapter_version` | Exact behavior/state adapter implementation |
@@ -33,6 +34,22 @@ An implementation claiming compatibility should declare these fields before eval
 | `claim_scope`, `evidence_cut` | What is asserted, and the frozen code/data/evaluation revision supporting it |
 
 These declarations are **identity and provenance bindings**, not evidence of running capability. Any material implementation or measurement change creates a new qualification subject unless compatibility is independently demonstrated.
+
+`sexuality_declaration.py` now provides `parse_declaration`, `parse_declaration_json`, and `require_exact_identity`. These accept only a versioned `sexuality.adapter-declaration.v1` envelope with plain, bounded ASCII identifiers for exactly the fields above. Scope is either `BEHAVIOR_ONLY` (state implementation and update rule fixed to `NONE`) or `ENGINEERED_STATE` (specific state, implementation, update, and measurement references required). Mutable revision aliases such as `latest` and duplicate JSON fields fail closed. Unknown fields, including an attempted `consent` or `effect_authority`, are refused. A successful declaration carries constant `effect_authority=NONE`, `activation=NOT_ACTIVATED`, and `qualification=NOT_QUALIFIED` projections.
+
+The equality check compares exact declared model, revision, subject, runtime instance, adapter, and profile identifiers to **caller-supplied** observed fields. It cannot establish that those fields came from the actual provider or host. Even a successful comparison does **not** authenticate an actor, admit an identity, activate sexuality behavior, establish consent, or authorize an effect; a host-owned verifier must independently establish those facts. It also does not consume `Pleasure` runtime state. There is no implicit import, relationship, or historical preference default.
+
+For a synthetic declaration test from a repository checkout:
+
+```python
+from sexuality_declaration import parse_declaration_json, require_exact_identity
+
+decl = parse_declaration_json(synthetic_declaration_json)
+require_exact_identity(decl, host_supplied_identity_fields)
+# Only syntax and caller-data equality checked: no host authority or activation.
+```
+
+The code and tests are stdlib-only. `python -B -m unittest discover -s tests -v` exercises the negative cases, but does not certify a live adapter or provider.
 
 ## Authority and state separation
 
