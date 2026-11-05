@@ -98,7 +98,7 @@ class DeclarationContractTests(unittest.TestCase):
 
     def test_rejects_ambiguous_or_malformed_revision_and_provenance(self):
         for field in ("model_revision", "adapter_version", "profile_revision", "evidence_cut"):
-            for value in ("", "latest", "main", "current", "*", "any", "rev\nforged", 1, True, None):
+            for value in ("", "latest", "main", "current", "*", "any", "NONE", "UNKNOWN", "unresolved", "rev\nforged", 1, True, None):
                 with self.subTest(field=field, value=value), self.assertRaises(DeclarationError):
                     parse_declaration(declaration(**{field: value}))
         with self.assertRaises(DeclarationError):

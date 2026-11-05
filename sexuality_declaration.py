@@ -25,6 +25,10 @@ _REVISION_FIELDS = frozenset({
     "measurement_definition_ref",
 })
 _MUTABLE_ALIASES = frozenset({"latest", "main", "current", "any", "*"})
+_ABSENT_ALIASES = frozenset({"none", "unknown", "unresolved", "not_applicable", "n/a"})
+_REQUIRED_REVISION_FIELDS = frozenset({
+    "model_revision", "adapter_version", "profile_revision", "evidence_cut",
+})
 _STATE_FIELDS = ("state_schema_version", "state_implementation_ref", "update_rule_ref")
 DECLARATION_SCHEMA = "sexuality.adapter-declaration.v1"
 
@@ -38,6 +42,8 @@ def _strict_identifier(value: object, name: str) -> str:
         raise DeclarationError(f"{name} contains whitespace, controls, or non-ASCII text")
     if name in _REVISION_FIELDS and value.lower() in _MUTABLE_ALIASES:
         raise DeclarationError(f"{name} cannot use a mutable alias")
+    if name in _REQUIRED_REVISION_FIELDS and value.lower() in _ABSENT_ALIASES:
+        raise DeclarationError(f"{name} requires an actual revision or evidence cut")
     return value
 
 
