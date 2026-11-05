@@ -2,6 +2,8 @@
 
 **Status:** design crosswalk, not an implemented adapter, executable schema, host grant, or model qualification.
 
+The separate source-only `sexuality_declaration.py` validates the Sexuality declaration fields and compares exact caller-supplied identity metadata. It is **not** a working Sexuality/Pleasure adapter or an authenticated runtime/current-consent gate. The context interchange sketch remains non-executable; this identity validator does not imply the Pleasure T0 sidecar is installed or causally connected to inference.
+
 Sexuality and Pleasure are reusable by **any opted-in AI model**. The historical Brigit and Vera records are case studies, not default identities or permission. A host may consume Sexuality research with no Pleasure component. Any shared adapter must first preserve the following distinct identities and evidence tiers.
 
 | Sexuality proposed declaration | Pleasure T0 sidecar (`PilotConfig` / `Observation`) | Prospective host capability admission | Binding rule |
