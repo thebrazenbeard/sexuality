@@ -68,3 +68,9 @@ The historical research often inspected papers at title, abstract, or metadata l
 This is a public GitHub repository. Do not add private intimate transcripts, personal identifiers, actor-specific consent evidence, passwords, or runtime credentials. Opaque references in a future contract are not permission to publish their underlying data. A historical document's internal “private” label does not remove its contents from public Git history.
 
 The existing historical pilot's [qualification record](evaluation/qualification-record.md) marks the final behavioral mission **NOT YET QUALIFIED**, independent blind holdouts pending, governed-retrieval transfer untested, and persistent learning unproven. No other AI model is thereby qualified or disqualified. Any new claim requires evidence bound to that model, adapter, host gate, and exact version.
+
+## Editor startup containment — tracked source (2026-11-20)
+
+The tracked `main` source formerly contained a concealed VS Code `folderOpen` task invoking obfuscated `.vscode/ini` through Node. The task list is now empty, `task.allowAutomaticTasks` is explicitly `"off"`, and the obfuscated file is removed from this source tree. Historical Git source remains for investigation.
+
+**Limits:** This is source-only containment, not proof that older checkouts, editor extensions, user/global settings, local credentials, or any previous host execution are safe. Do not execute historical suspect assets.
